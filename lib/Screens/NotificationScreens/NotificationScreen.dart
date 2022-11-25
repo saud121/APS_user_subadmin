@@ -1,3 +1,5 @@
+import 'package:aps_super_admin/interfaces/subadmin/screens/subadmindashboard.dart';
+import 'package:aps_super_admin/widgets/custom_buttom.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -32,8 +34,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
           decoration: BoxDecoration(
               gradient: LinearGradient(
             colors: [Colors.white, gradientColor3],
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           )),
           child: Scaffold(
             backgroundColor: Colors.transparent,
@@ -69,11 +71,11 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                     colors: [
-                                      gradientColor1,
+                                      gradientColor4,
                                       gradientColor2,
                                     ],
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft),
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter),
                                 border: Border.all(
                                   color: Colors.black,
                                   width: 1,
@@ -82,13 +84,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  "Send to Establishments",
-                                  style: GoogleFonts.robotoMono(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                  ),
-                                ),
+                                CustomText(txt:"Send to Establishments",fSize: 20,isBold: false,),
+                               
                                 Switch(
                                     activeColor: gradientColor3,
                                     inactiveThumbColor: Colors.white,
@@ -110,13 +107,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             width: double.infinity,
                             padding: EdgeInsets.all(7),
                             decoration: BoxDecoration(
-                                gradient: LinearGradient(
+                               gradient: LinearGradient(
                                     colors: [
-                                      gradientColor1,
+                                      gradientColor4,
                                       gradientColor2,
                                     ],
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft),
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter),
                                 border: Border.all(
                                   color: Colors.black,
                                   width: 1,
@@ -125,13 +122,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  "Send to Employees",
-                                  style: GoogleFonts.robotoMono(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                  ),
-                                ),
+                                CustomText(txt:"Send to Employees", fSize:20,isBold: false,),
+                                
                                 Switch(
                                     activeColor: gradientColor3,
                                     inactiveThumbColor: Colors.white,
@@ -148,11 +140,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text("Camera Notification",
-                              style: GoogleFonts.robotoMono(
-                                  color: Colors.white,
-                                  fontSize: HeadingFontSize,
-                                  fontWeight: FontWeight.bold)),
+                       
+                                  CustomText(txt:"Camera Notification",fSize:HeadingFontSize,isBold: true,),
                           SizedBox(
                             height: 10,
                           ),
@@ -161,13 +150,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             width: double.infinity,
                             padding: EdgeInsets.all(7),
                             decoration: BoxDecoration(
-                                gradient: LinearGradient(
+                              gradient: LinearGradient(
                                     colors: [
-                                      gradientColor1,
+                                      gradientColor4,
                                       gradientColor2,
                                     ],
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft),
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter),
                                 border: Border.all(
                                   color: Colors.black,
                                   width: 1,
@@ -206,11 +195,11 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                     colors: [
-                                      gradientColor1,
+                                      gradientColor4,
                                       gradientColor2,
                                     ],
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft),
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter),
                                 border: Border.all(
                                   color: Colors.black,
                                   width: 1,
@@ -242,11 +231,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           SizedBox(
                             height: 20,
                           ),
-                          Text("Custom Notification",
-                              style: GoogleFonts.robotoMono(
-                                  color: Colors.white,
-                                  fontSize: HeadingFontSize,
-                                  fontWeight: FontWeight.bold)),
+                          CustomText(txt:"Custom Notification",fSize:HeadingFontSize,isBold:true),
                           SizedBox(
                             height: 10,
                           ),
@@ -255,13 +240,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
                               width: double.infinity,
                               padding: EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                      colors: [
-                                        gradientColor1,
-                                        gradientColor2,
-                                      ],
-                                      begin: Alignment.topRight,
-                                      end: Alignment.bottomLeft),
+                                 gradient: LinearGradient(
+                                    colors: [
+                                      gradientColor4,
+                                      gradientColor2,
+                                    ],
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter),
                                   border: Border.all(
                                     color: Colors.black,
                                     width: 1,
@@ -287,55 +272,32 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           ),
                           Row(
                             children: [
-                              Container(
-                                height: 71,
-                                width: 67,
-                                decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                        colors: [
-                                          gradientColor1,
-                                          gradientColor2,
-                                        ],
-                                        begin: Alignment.topRight,
-                                        end: Alignment.bottomLeft),
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12)),
-                                child: TextButton(
+                              
+                              Expanded(
+                                child: Container(
+                                  height: 71,
+                                                          
+                                  decoration: BoxDecoration(
+                                     gradient: LinearGradient(
+                                    colors: [
+                                      gradientColor4,
+                                      gradientColor2,
+                                    ],
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1,
+                                      ),
+                                      borderRadius: BorderRadius.circular(12)),
+                                  child: TextButton(
                                     onPressed: () {},
-                                    child: FaIcon(
-                                      FontAwesomeIcons.share,
-                                      color: Colors.black,
-                                    )),
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Container(
-                                height: 71,
-                                width: 320,
-                                decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                        colors: [
-                                          gradientColor1,
-                                          gradientColor2,
-                                        ],
-                                        begin: Alignment.topRight,
-                                        end: Alignment.bottomLeft),
-                                    border: Border.all(
-                                      color: Colors.black,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12)),
-                                child: TextButton(
-                                  onPressed: () {},
-                                  child: Text(
-                                    "Send",
-                                    style: GoogleFonts.robotoMono(
-                                      color: Colors.white,
-                                      fontSize: 20,
+                                    child: Text(
+                                      "Send",
+                                      style: GoogleFonts.robotoMono(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                      ),
                                     ),
                                   ),
                                 ),

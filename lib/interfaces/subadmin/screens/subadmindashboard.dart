@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:aps_super_admin/Utils/colors.dart';
+import 'package:aps_super_admin/widgets/custom_buttom.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 class SubAdminDashboard extends StatelessWidget {
@@ -27,26 +28,54 @@ class SubAdminDashboard extends StatelessWidget {
           
            children: [
             SizedBox(child: Image.asset("assets/submap.png"),),
-            Container(
-             child:
-             Column(children: [
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Container (
+                decoration: BoxDecoration(border: Border.all(),
+                borderRadius: BorderRadius.circular(10)
+                ),
 
-              Row(
-                children: [      Text("Total Employees",style: GoogleFonts.robotoMono(
-                                       color: Colors.white,
-                                       fontSize: HeadingFontSize,
-                                       fontWeight: FontWeight.bold)),
-                ],
-              ),
+                
+               child: 
+               Column (
+                children:[
 
-                                   Text("Area Under Jurisdiction  500m",style: GoogleFonts.robotoMono(
-                                   color: Colors.white,
-                                   fontSize: HeadingFontSize,
-                                   fontWeight: FontWeight.bold)),
-                 ],),
-             
-             decoration: BoxDecoration(border: Border.all()),
-             ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [      Column(
+                  
+                    children: [
+                      CustomText(txt: "Total Employees",fSize:24,isBold:true)
+                    ],
+                  ),
+                  Column(
+                    children: [
+                     CustomText(txt:"10",fSize:24,isBold:true)
+                    ],
+                  ),
+                  ],
+                ),
+                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [      Column(
+                  
+                    children: [
+                      CustomText(txt:"Area Under Jurisdiction",fSize:24,isBold:true)
+                    ],
+                  ),
+                  Column(
+                    children: [
+                     CustomText(txt:"500m",fSize:24,isBold: true,)
+                    ],
+                  ),
+                  ],
+                ),
+                                 
+                   ],),
+               
+               
+               ),
+            ),
 
            ],
          ),
@@ -54,3 +83,4 @@ class SubAdminDashboard extends StatelessWidget {
     );
   }
 }
+

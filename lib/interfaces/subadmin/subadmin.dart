@@ -3,6 +3,7 @@ import 'package:aps_super_admin/Screens/DashbordScreens/DashboardScreen.dart';
 import 'package:aps_super_admin/Screens/EstablishmentScreens/Widget/myChart.dart';
 import 'package:aps_super_admin/Screens/FeedScreens/FeedScreen.dart';
 import 'package:aps_super_admin/Screens/ManageScreens/ManageScreen.dart';
+import 'package:aps_super_admin/Screens/ManageScreens/subadmin_mange.dart';
 import 'package:aps_super_admin/Screens/NotificationScreens/NotificationScreen.dart';
 import 'package:aps_super_admin/Screens/StorageScreens/StorageScreen.dart';
 import 'package:aps_super_admin/Utils/colors.dart';
@@ -89,7 +90,7 @@ class _SubAdminState extends State<SubAdmin> {
                       fontSize: 20),
                 ),
                 onTap: () {
-                  Get.to(() => ManageScreen());
+                  Get.to(() => SubAdminManageScreen());
                 },
               ),
               ListTile(
