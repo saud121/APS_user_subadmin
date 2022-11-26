@@ -1,3 +1,4 @@
+import 'package:aps_super_admin/Utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomtextField extends StatelessWidget {
@@ -35,20 +36,27 @@ class CustomtextField extends StatelessWidget {
         enabled: enable == true ? true : enable,
         maxLines: maxlines == null ? 1 : maxlines,
         onSaved: onsave,
+        cursorColor: Colors.black,
         focusNode: focusNode,
         textInputAction: textInputAction,
         keyboardType: keyboardtype == null ? TextInputType.name : keyboardtype,
         controller: controller,
         validator: validate,
+        style: TextStyle(color: Colors.black),
         obscureText: isPassword == false ? false : true,
         decoration: InputDecoration(
+          hintStyle: TextStyle(
+                              fontFamily: "Major",
+                              color: Colors.white,
+                              fontSize: 23),
           prefixIcon: prefix,
           suffixIcon: suffix,
           labelText: hintText ?? "Hint text...",
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
                 style: BorderStyle.solid,
-                color: Theme.of(context).primaryColor),
+                 color: Colors.black
+                ),
             borderRadius: BorderRadius.circular(30),
           ),
           enabledBorder: OutlineInputBorder(
@@ -62,14 +70,14 @@ class CustomtextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(30),
             borderSide: BorderSide(
               style: BorderStyle.solid,
-              color: Theme.of(context).primaryColor,
+              color: Colors.white,
             ),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
             borderSide: BorderSide(
               style: BorderStyle.solid,
-              color: Colors.red,
+              color: Colors.green,
             ),
           ),
         ));
