@@ -17,53 +17,50 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool isPasswordShown=true;
+  bool isPasswordShown = true;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   Future<void> LoginPanel() async {
     var url = "https://thor-aps.herokuapp.com/api/auth/login";
-    try{
-    var res = await http.post(Uri.parse(url), headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-        body: jsonEncode(
-        <String, dynamic>{
-          "email":_emailController.text,
-        "password":_passwordController.text
+    try {
+      var res = await http.post(
+        Uri.parse(url),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
         },
-      ),
-
-    );
-    var resData = jsonDecode(res.body);
-    if (resData["success"].toString() == "false") {  
-    } else {
-      Get.to(WelcomeScreen());
-      print((res.body.toString()));
+        body: jsonEncode(
+          <String, dynamic>{
+            "email": _emailController.text,
+            "password": _passwordController.text
+          },
+        ),
+      );
+      var resData = jsonDecode(res.body);
+      if (resData["success"].toString() == "false") {
+      } else {
+        Get.to(WelcomeScreen());
+        print((res.body.toString()));
+      }
+    } catch (e) {
+      print("Error msg " + e.toString());
     }
-    }
-    catch (e){
-      print("Error msg "+e.toString());
-    }
-
   }
 
   void signIn() {
     if (_formKey.currentState!.validate()) {
-       
       // if (_emailController.text.trim()== _email.trim()) {
-       
-       
-    //   } else if (_emailController.text == _subadmin) {
-    //     Get.to(() => SubAdmin());
-    //   }
-    //   else if (_emailController.text == _user) {
-    //   Get.to(() => DashboardScreen());
-    // }
-    
-    // } else{
-    //   print("Invalid form");
-     }
+
+      //   } else if (_emailController.text == _subadmin) {
+      //     Get.to(() => SubAdmin());
+      //   }
+      //   else if (_emailController.text == _user) {
+      //   Get.to(() => DashboardScreen());
+      // }
+
+      // } else{
+      //   print("Invalid form");
+    }
   }
 
   @override
@@ -103,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   //   padding: EdgeInsets.all(10),
                   //   decoration: BoxDecoration(
                   //     border: Border.all(
-                  //       color: Colors.white,
+                  //       color: Colors.white,SSS
                   //       width: 1,
                   //     ),
                   //     borderRadius: BorderRadius.circular(36),
@@ -130,47 +127,61 @@ class _LoginScreenState extends State<LoginScreen> {
                   //     },
                   //   ),
                   // ),
-                  CustomtextField(hintText: "Enter Email",
-                  controller: _emailController,
-                  prefix: Icon(Icons.person,color: Colors.black,),
-                  textInputAction: TextInputAction.next,
-                  keyboardtype: TextInputType.emailAddress,
-                  validate: (email) {
-                    if(email!.isEmpty || email.length<3 || !email.contains("@")){
-                      return "enter Correct Email";
-                    }
-                    return null;
-                  },
+                  CustomtextField(
+                    hintText: "Enter Email",
+                    controller: _emailController,
+                    prefix: Icon(
+                      Icons.person,
+                      color: Colors.black,
+                    ),
+                    textInputAction: TextInputAction.next,
+                    keyboardtype: TextInputType.emailAddress,
+                    validate: (email) {
+                      if (email!.isEmpty ||
+                          email.length < 3 ||
+                          !email.contains("@")) {
+                        return "enter Correct Email";
+                      }
+                      return null;
+                    },
                   ),
                   SizedBox(height: 30),
-                  
-                 CustomtextField(
-                                    hintText: "Enter Password",
-                                    isPassword: isPasswordShown,
-                                    controller: _passwordController,
-                                    onsave: (password) {
-                                      // _formData['password'] = password ?? " ";
-                                    },
-                                    prefix: Icon(Icons.vpn_key_rounded,color: Colors.black,),
-                                    suffix: IconButton(
-                                      onPressed: () {
-                                        setState(() {
-                                          isPasswordShown = !isPasswordShown;
-                                        });
-                                      },
-                                      icon: isPasswordShown
-                                          ? Icon(Icons.visibility,color: Colors.black,)
-                                          : Icon(Icons.visibility_off,color: Colors.black,),
-                                    ),
-                                    validate: (password) {
-                                      if (password!.isEmpty ||
-                                          password.length < 7) {
-                                        return "enter Correct password";
-                                      }
-                                      return null;
-                                    },
-                                  ),
-      
+
+                  CustomtextField(
+                    hintText: "Enter Password",
+                    isPassword: isPasswordShown,
+                    controller: _passwordController,
+                    onsave: (password) {
+                      // _formData['password'] = password ?? " ";
+                    },
+                    prefix: Icon(
+                      Icons.vpn_key_rounded,
+                      color: Colors.black,
+                    ),
+                    suffix: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          isPasswordShown = !isPasswordShown;
+                        });
+                      },
+                      icon: isPasswordShown
+                          ? Icon(
+                              Icons.visibility,
+                              color: Colors.black,
+                            )
+                          : Icon(
+                              Icons.visibility_off,
+                              color: Colors.black,
+                            ),
+                    ),
+                    validate: (password) {
+                      if (password!.isEmpty || password.length < 7) {
+                        return "enter Correct password";
+                      }
+                      return null;
+                    },
+                  ),
+
                   //! Container(
                   //   height: 77,
                   //   padding: EdgeInsets.all(10),
@@ -227,21 +238,19 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: TextButton(
                       onPressed: () {
-                         Get.to(WelcomeScreen());
+                        Get.to(WelcomeScreen());
                         // Get.to(UserDashboardScreen());
                         // LoginPanel();
                         // AuthService().login(_emailController.text, _passwordController.text);
-                    //      AuthService().login(_emailController.text,_passwordController.text)
-                    //      .then((val){
-                    //       print("value datas "+val.data);
-                    //  if(val.data['success']){
-                    //       Get.to(() => WelcomeScreen());
-                    //            }
-                    //      }
-                    //      );
+                        //      AuthService().login(_emailController.text,_passwordController.text)
+                        //      .then((val){
+                        //       print("value datas "+val.data);
+                        //  if(val.data['success']){
+                        //       Get.to(() => WelcomeScreen());
+                        //            }
+                        //      }
+                        //      );
                       },
-          
-        
                       child: Text(
                         "SIGN IN",
                         style: TextStyle(

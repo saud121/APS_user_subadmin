@@ -34,38 +34,33 @@ class CustomtextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
         enabled: enable == true ? true : enable,
-        maxLines: maxlines == null ? 1 : maxlines,
+        maxLines: maxlines ?? 1,
         onSaved: onsave,
         cursorColor: Colors.black,
         focusNode: focusNode,
         textInputAction: textInputAction,
-        keyboardType: keyboardtype == null ? TextInputType.name : keyboardtype,
+        keyboardType: keyboardtype ?? TextInputType.name,
         controller: controller,
         validator: validate,
         style: TextStyle(color: Colors.black),
         obscureText: isPassword == false ? false : true,
         decoration: InputDecoration(
-          hintStyle: TextStyle(
-                              fontFamily: "Major",
-                              color: Colors.white,
-                              fontSize: 23),
+          hintStyle:
+              TextStyle(fontFamily: "Major", color: Colors.white, fontSize: 23),
           prefixIcon: prefix,
           suffixIcon: suffix,
           labelText: hintText ?? "Hint text...",
-          labelStyle: TextStyle(color: 
-          Colors.black),
+          labelStyle: TextStyle(color: Colors.black),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                style: BorderStyle.solid,
-                 color: Colors.black
-                ),
+            borderSide:
+                BorderSide(style: BorderStyle.solid, color: Colors.black),
             borderRadius: BorderRadius.circular(30),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
             borderSide: BorderSide(
               style: BorderStyle.solid,
-              color: Color(0xFF909E9E),
+              color: Color.fromARGB(255, 255, 255, 255),
             ),
           ),
           focusedErrorBorder: OutlineInputBorder(
