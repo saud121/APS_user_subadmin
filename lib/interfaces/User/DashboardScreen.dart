@@ -1,3 +1,4 @@
+import 'package:aps_super_admin/Screens/LoginScreens/LoginScreen.dart';
 import 'package:aps_super_admin/Utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -66,7 +67,9 @@ class DashboardScreen extends StatelessWidget {
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.black,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Get.to(LoginScreen());
+              },
               child: Text("Sign Out"),
             ) 
           ])),

@@ -171,19 +171,15 @@ class _SubAdminState extends State<SubAdmin> {
           iconTheme: IconThemeData(color: gradientColor2, size: 40),
           title: Text("Sub Admin"),
         ),
-          body: Column(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-             
-              
-              SizedBox(
-                height: 20,
-              ),
-            
-            ],
-          )),
+          body: Center(
+          child: Text("WELCOME TO APS",
+              style: TextStyle(
+                  color: gradientColor2,
+                  fontSize: 48,
+                  fontFamily: "Major",
+                  fontWeight: FontWeight.bold)),
+        ),
+          ),
     );
 
   }

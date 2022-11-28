@@ -1,7 +1,9 @@
-import 'package:aps_super_admin/interfaces/WelcomeScreens/WelcomeScreen.dart';
+import 'package:aps_super_admin/interfaces/superAdmin/WelcomeScreen.dart';
 import 'package:aps_super_admin/interfaces/subadmin/subadmin.dart';
+import 'package:aps_super_admin/services/authservice.dart';
 import 'package:aps_super_admin/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../Utils/colors.dart';
@@ -15,9 +17,9 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final String _email = "admin";
-  final String _subadmin = "subadmin";
-  final String _user = "user";
+  final String _email = "admin@g.c";
+  final String _subadmin = "subadmin@g.c";
+  final String _user = "user@g.c";
   bool isPasswordShown=true;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -25,13 +27,31 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void signIn() {
     if (_formKey.currentState!.validate()) {
-      if (_emailController.text == _email) {
+       
+      if (_emailController.text.trim()== _email.trim()) {
+        AuthService().login(_email,_passwordController.text).then((val){
+          if(val.data['success']){
+             Fluttertoast.showToast(
+        msg: "Authenticated",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+          }
+        });
         Get.to(() => WelcomeScreen());
       } else if (_emailController.text == _subadmin) {
         Get.to(() => SubAdmin());
       }
-    } else if (_emailController.text == _user) {
+      else if (_emailController.text == _user) {
       Get.to(() => DashboardScreen());
+    }
+    
+    } else{
+      print("Invalid form");
     }
   }
 
@@ -41,8 +61,8 @@ class _LoginScreenState extends State<LoginScreen> {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color.fromARGB(255, 246, 105, 105),
-            Color.fromARGB(221, 80, 48, 48)
+            Color.fromARGB(255, 245, 243, 243),
+            Color.fromARGB(221, 176, 176, 176)
           ],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -64,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(
                         fontFamily: "Major",
                         fontSize: 57,
-                        color: Colors.white),
+                        color: gradientColor2),
                   ),
                   const SizedBox(height: 60),
                   // Container(
@@ -100,6 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   //   ),
                   // ),
                   CustomtextField(hintText: "Enter Email",
+                  controller: _emailController,
                   prefix: Icon(Icons.person,color: Colors.black,),
                   textInputAction: TextInputAction.next,
                   keyboardtype: TextInputType.emailAddress,
@@ -115,6 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                  CustomtextField(
                                     hintText: "Enter Password",
                                     isPassword: isPasswordShown,
+                                    controller: _passwordController,
                                     onsave: (password) {
                                       // _formData['password'] = password ?? " ";
                                     },
@@ -179,14 +201,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         "Forgot Password?",
                         style: TextStyle(
                             fontFamily: "Major",
-                            color: Colors.white,
+                            color: gradientColor2,
                             fontSize: 20),
                       ),
                     ],
                   ),
                   SizedBox(height: 30),
                   Container(
-                    height: 77,
+                    height: 60,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(36),
@@ -200,8 +222,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         "SIGN IN",
                         style: TextStyle(
                             fontFamily: "Major",
-                            color: Colors.white,
-                            fontSize: 40),
+                            color: gradientColor2,
+                            fontSize: 30),
                       ),
                     ),
                   ),

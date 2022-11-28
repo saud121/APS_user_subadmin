@@ -1,4 +1,4 @@
-import 'package:aps_super_admin/Screens/SplashScreens/SplashScreen.dart';
+import 'package:aps_super_admin/Screens/SplashScreens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

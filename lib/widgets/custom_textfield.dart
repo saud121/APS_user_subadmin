@@ -52,6 +52,8 @@ class CustomtextField extends StatelessWidget {
           prefixIcon: prefix,
           suffixIcon: suffix,
           labelText: hintText ?? "Hint text...",
+          labelStyle: TextStyle(color: 
+          Colors.black),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
                 style: BorderStyle.solid,
@@ -77,7 +79,7 @@ class CustomtextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(30),
             borderSide: BorderSide(
               style: BorderStyle.solid,
-              color: Colors.green,
+              color: Color.fromARGB(255, 255, 0, 0),
             ),
           ),
         ));
