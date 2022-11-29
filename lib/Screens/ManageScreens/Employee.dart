@@ -9,10 +9,17 @@ class EmployeeScreen extends StatefulWidget {
 
   @override
   State<EmployeeScreen> createState() => _EmployeeScreenState();
+
 }
 
 class _EmployeeScreenState extends State<EmployeeScreen> {
   String dropdownValue = "Sub Admin";
+
+  @override
+  void initState() {
+  //  DialogExample();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -137,7 +144,10 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
                       borderRadius: BorderRadius.circular(36),
                     ),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        
+                        Dialo(context);
+                      },
                       child: Text("Add Employee",
                           style: GoogleFonts.robotoMono(
                               color: Colors.white, fontSize: 20)),
@@ -148,3 +158,42 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
         ));
   }
 }
+
+  Dialo(context){
+    String dropdownValue = "Sub Admin";
+    return showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: const Text('Add Employee as a'),
+          content: DropdownButton(
+                      value: dropdownValue,
+                      items: [
+                        DropdownMenuItem(
+                          value: "Sub Admin",
+                          child: Text(
+                            "Sub Admin",
+                          ),
+                        ),
+                        DropdownMenuItem(
+                          value: "User",
+                          child: Text("User"),
+                        ),
+                      ],
+                      onChanged: (String? value) {
+                      },
+          ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'Cancel'),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'OK'),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+     
+  }
+

@@ -228,7 +228,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: TextButton(
                       onPressed: () {
-                        LoginPanel();
+                         Get.to(WelcomeScreen());
+                        // LoginPanel();
                         // AuthService().login(_emailController.text, _passwordController.text);
                     //      AuthService().login(_emailController.text,_passwordController.text)
                     //      .then((val){

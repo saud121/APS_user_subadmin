@@ -64,11 +64,11 @@ class ManageScreen extends StatelessWidget {
                               decoration: BoxDecoration(
                                   gradient: LinearGradient(
                                       colors: [
-                                        gradientColor1,
+                                        gradientColor4,
                                         gradientColor2,
                                       ],
-                                      begin: Alignment.topRight,
-                                      end: Alignment.bottomLeft),
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter),
                                   borderRadius: BorderRadius.circular(26)),
                               child: TextButton(
                                   onPressed: () {
@@ -91,13 +91,13 @@ class ManageScreen extends StatelessWidget {
                               height: 51,
                               width: 255,
                               decoration: BoxDecoration(
-                                  gradient: LinearGradient(
+                                   gradient: LinearGradient(
                                       colors: [
-                                        gradientColor1,
+                                        gradientColor4,
                                         gradientColor2,
                                       ],
-                                      begin: Alignment.topRight,
-                                      end: Alignment.bottomLeft),
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter),
                                   borderRadius: BorderRadius.circular(26)),
                               child: TextButton(
                                   onPressed: () {
@@ -119,12 +119,12 @@ class ManageScreen extends StatelessWidget {
                         width: 255,
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
-                                colors: [
-                                  gradientColor1,
-                                  gradientColor2,
-                                ],
-                                begin: Alignment.topRight,
-                                end: Alignment.bottomLeft),
+                                      colors: [
+                                        gradientColor4,
+                                        gradientColor2,
+                                      ],
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter),
                             borderRadius: BorderRadius.circular(26)),
                         child: TextButton(
                             onPressed: () {
