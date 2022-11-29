@@ -1,3 +1,5 @@
+import 'package:aps_super_admin/Screens/DashbordScreens/DashboardScreen.dart';
+import 'package:aps_super_admin/interfaces/User/DashboardScreen.dart';
 import 'package:aps_super_admin/interfaces/superAdmin/WelcomeScreen.dart';
 import 'package:aps_super_admin/services/authservice.dart';
 import 'package:aps_super_admin/widgets/custom_textfield.dart';
@@ -15,9 +17,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final String _email = "admin@g.c";
-  final String _subadmin = "subadmin@g.c";
-  final String _user = "user@g.c";
   bool isPasswordShown=true;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -229,6 +228,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: TextButton(
                       onPressed: () {
                          Get.to(WelcomeScreen());
+                        // Get.to(UserDashboardScreen());
                         // LoginPanel();
                         // AuthService().login(_emailController.text, _passwordController.text);
                     //      AuthService().login(_emailController.text,_passwordController.text)

@@ -1,3 +1,5 @@
+import 'package:aps_super_admin/services/add_employees.dart';
+import 'package:aps_super_admin/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,23 +7,32 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../Utils/colors.dart';
 
 class EmployeeScreen extends StatefulWidget {
-  const EmployeeScreen({super.key});
+  EmployeeScreen({super.key});
+  var Employeerole = Get.arguments;
 
   @override
   State<EmployeeScreen> createState() => _EmployeeScreenState();
-
 }
 
 class _EmployeeScreenState extends State<EmployeeScreen> {
   String dropdownValue = "Sub Admin";
+  bool isPasswordShown = true;
+  bool isConfirmPassword = true;
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _passwordConfirmController =
+      TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
-  //  DialogExample();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
+    //  Dialo(context);
     return Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -39,161 +50,224 @@ class _EmployeeScreenState extends State<EmployeeScreen> {
                 },
                 icon: Icon(Icons.arrow_back)),
             centerTitle: true,
-            title: Text("Employees"),
+            title: Text("Employees " + Get.arguments.toString()),
           ),
-          body: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Container(
-                  height: 77,
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.white,
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(36),
-                  ),
-                  child: TextFormField(
-                    cursorColor: Colors.black,
-                    style: GoogleFonts.robotoMono(
-                        color: Colors.black, fontSize: 20),
-                    decoration: InputDecoration(
-                      hintText: "Enter name",
-                      hintStyle: GoogleFonts.robotoMono(
-                          color: Colors.white, fontSize: 20),
-                      border: InputBorder.none,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  height: 77,
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.white,
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(36),
-                  ),
-                  child: TextFormField(
-                    cursorColor: Colors.black,
-                    style: GoogleFonts.robotoMono(
-                        color: Colors.black, fontSize: 20),
-                    decoration: InputDecoration(
-                      hintText: "Enter password",
-                      hintStyle: GoogleFonts.robotoMono(
-                          color: Colors.white, fontSize: 20),
-                      border: InputBorder.none,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          body: SingleChildScrollView(
+            child: Form(
+              key: _formKey,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
                   children: [
-                    Text("Role",
-                        style: GoogleFonts.robotoMono(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                            fontSize: 20)),
-                    DropdownButton(
-                      value: dropdownValue,
-                      items: [
-                        DropdownMenuItem(
-                          value: "Sub Admin",
-                          child: Text(
-                            "Sub Admin",
-                          ),
-                        ),
-                        DropdownMenuItem(
-                          value: "User",
-                          child: Text("User"),
-                        ),
-                      ],
-                      onChanged: (String? value) {
-                        setState(() {
-                          dropdownValue = value!;
-                        });
+                    CustomtextField(
+                      hintText: "Enter Username",
+                      controller: _usernameController,
+                      prefix: Icon(
+                        Icons.person,
+                        color: Colors.black,
+                      ),
+                      textInputAction: TextInputAction.next,
+                      keyboardtype: TextInputType.emailAddress,
+                      validate: (UserName) {
+                        if (UserName!.isEmpty ||
+                            UserName.length < 3 ||
+                            UserName.contains(" ")) {
+                          return "enter Correct UserName";
+                        }
+                        return null;
                       },
-                    )
+                    ),
+                    SizedBox(height: 30),
+                    CustomtextField(
+                      hintText: "Enter Email",
+                      controller: _emailController,
+                      prefix: Icon(
+                        Icons.person,
+                        color: Colors.black,
+                      ),
+                      textInputAction: TextInputAction.next,
+                      keyboardtype: TextInputType.emailAddress,
+                      validate: (email) {
+                        if (email!.isEmpty ||
+                            email.length < 3 ||
+                            !email.contains("@")) {
+                          return "enter Correct Email";
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 30),
+
+                    CustomtextField(
+                      hintText: "Enter Password",
+                      isPassword: isPasswordShown,
+                      controller: _passwordController,
+                      onsave: (password) {
+                        // _formData['password'] = password ?? " ";
+                      },
+                      prefix: Icon(
+                        Icons.vpn_key_rounded,
+                        color: Colors.black,
+                      ),
+                      suffix: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isPasswordShown = !isPasswordShown;
+                          });
+                        },
+                        icon: isPasswordShown
+                            ? Icon(
+                                Icons.visibility,
+                                color: Colors.black,
+                              )
+                            : Icon(
+                                Icons.visibility_off,
+                                color: Colors.black,
+                              ),
+                      ),
+                      validate: (password) {
+                        if (password!.isEmpty || password.length < 7) {
+                          return "enter Correct password";
+                        }
+                        return null;
+                      },
+                    ),
+
+                    SizedBox(height: 30),
+
+                    CustomtextField(
+                      hintText: "Enter Confirm Password",
+                      isPassword: isConfirmPassword,
+                      controller: _passwordConfirmController,
+                      onsave: (password) {
+                        // _formData['password'] = password ?? " ";
+                      },
+                      prefix: Icon(
+                        Icons.vpn_key_rounded,
+                        color: Colors.black,
+                      ),
+                      suffix: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isConfirmPassword = !isConfirmPassword;
+                          });
+                        },
+                        icon: isConfirmPassword
+                            ? Icon(
+                                Icons.visibility,
+                                color: Colors.black,
+                              )
+                            : Icon(
+                                Icons.visibility_off,
+                                color: Colors.black,
+                              ),
+                      ),
+                      validate: (password) {
+                        if (password!.isEmpty || password.length < 7) {
+                          return "enter Correct confirm password";
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Role",
+                            style: GoogleFonts.robotoMono(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                fontSize: 20)),
+                        DropdownButton(
+                          value: dropdownValue,
+                          items: [
+                            DropdownMenuItem(
+                              value: "Sub Admin",
+                              child: Text(
+                                "Sub Admin",
+                              ),
+                            ),
+                            DropdownMenuItem(
+                              value: "User",
+                              child: Text("User"),
+                            ),
+                          ],
+                          onChanged: (String? value) {
+                            setState(() {
+                              dropdownValue = value!;
+                            });
+                          },
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      height: 60,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(36),
+                        color: Colors.white.withOpacity(0.5),
+                      ),
+                      child: TextButton(
+                        onPressed: () {
+                          AddEmployee().RegisterPanel(
+                            _usernameController.text,
+                           _emailController.text, 
+                           _passwordConfirmController.text,
+                           dropdownValue.toString()
+                           );
+                        },
+                        child: Text(
+                          "Add Employee",
+                          style: TextStyle(color: gradientColor2, fontSize: 30),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                    height: 77,
-                    width: 355,
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: [
-                        gradientColor1,
-                        gradientColor2,
-                      ]),
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(36),
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        
-                        Dialo(context);
-                      },
-                      child: Text("Add Employee",
-                          style: GoogleFonts.robotoMono(
-                              color: Colors.white, fontSize: 20)),
-                    )),
-              ],
+              ),
             ),
           ),
         ));
   }
 }
 
-  Dialo(context){
-    String dropdownValue = "Sub Admin";
-    return showDialog<String>(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          title: const Text('Add Employee as a'),
-          content: DropdownButton(
-                      value: dropdownValue,
-                      items: [
-                        DropdownMenuItem(
-                          value: "Sub Admin",
-                          child: Text(
-                            "Sub Admin",
-                          ),
-                        ),
-                        DropdownMenuItem(
-                          value: "User",
-                          child: Text("User"),
-                        ),
-                      ],
-                      onChanged: (String? value) {
-                      },
+Dialo(BuildContext context) {
+  String dropdownValue = "Sub Admin";
+  return showDialog<String>(
+    context: context,
+    builder: (BuildContext context) => AlertDialog(
+      title: const Text('Add Employee Role'),
+      content: DropdownButton(
+        value: dropdownValue,
+        items: [
+          DropdownMenuItem(
+            value: "Sub Admin",
+            child: Text(
+              "Sub Admin",
+            ),
           ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'Cancel'),
-              child: const Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'OK'),
-              child: const Text('OK'),
-            ),
-          ],
+          DropdownMenuItem(
+            value: "User",
+            child: Text("User"),
+          ),
+        ],
+        onChanged: (String? value) {},
+      ),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () => Navigator.pop(context, 'Cancel'),
+          child: const Text('Cancel'),
         ),
-      );
-     
-  }
-
+        TextButton(
+          onPressed: () => Navigator.pop(context, 'OK'),
+          child: const Text('OK'),
+        ),
+      ],
+    ),
+  );
+}

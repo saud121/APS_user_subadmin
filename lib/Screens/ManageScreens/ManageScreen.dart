@@ -8,9 +8,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../Utils/colors.dart';
 
-class ManageScreen extends StatelessWidget {
-  const ManageScreen({super.key});
+class ManageScreen extends StatefulWidget {
+  ManageScreen({super.key});
 
+  @override
+  State<ManageScreen> createState() => _ManageScreenState();
+}
+
+class _ManageScreenState extends State<ManageScreen> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -91,7 +96,7 @@ class ManageScreen extends StatelessWidget {
                               height: 51,
                               width: 255,
                               decoration: BoxDecoration(
-                                   gradient: LinearGradient(
+                                  gradient: LinearGradient(
                                       colors: [
                                         gradientColor4,
                                         gradientColor2,
@@ -101,6 +106,7 @@ class ManageScreen extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(26)),
                               child: TextButton(
                                   onPressed: () {
+                                  
                                     Get.to(() => EmployeeScreen());
                                   },
                                   child: Text(
@@ -119,12 +125,12 @@ class ManageScreen extends StatelessWidget {
                         width: 255,
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
-                                      colors: [
-                                        gradientColor4,
-                                        gradientColor2,
-                                      ],
-                                      begin: Alignment.bottomCenter,
-                                      end: Alignment.topCenter),
+                                colors: [
+                                  gradientColor4,
+                                  gradientColor2,
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter),
                             borderRadius: BorderRadius.circular(26)),
                         child: TextButton(
                             onPressed: () {
@@ -145,4 +151,5 @@ class ManageScreen extends StatelessWidget {
           )),
     );
   }
+
 }

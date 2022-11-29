@@ -7,8 +7,8 @@ import '../../Screens/EstablishmentScreens/Widget/myChart.dart';
 import 'EventScreen.dart';
 import 'SettingScreen.dart';
 
-class DashboardScreen extends StatelessWidget {
-  const DashboardScreen({super.key});
+class UserDashboardScreen extends StatelessWidget {
+  const UserDashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
