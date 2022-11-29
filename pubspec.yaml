@@ -43,6 +43,7 @@ dependencies:
   icons_launcher: ^2.0.5
   dio: ^4.0.6
   fluttertoast: ^8.1.1
+  http: ^0.13.5
 icons_launcher:
   image_path: 'assets/AppLogo.png'
   platforms:

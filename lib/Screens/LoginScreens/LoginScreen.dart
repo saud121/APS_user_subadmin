@@ -1,13 +1,11 @@
 import 'package:aps_super_admin/interfaces/superAdmin/WelcomeScreen.dart';
-import 'package:aps_super_admin/interfaces/subadmin/subadmin.dart';
 import 'package:aps_super_admin/services/authservice.dart';
 import 'package:aps_super_admin/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/route_manager.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../Utils/colors.dart';
-import '../../interfaces/User/DashboardScreen.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -24,35 +22,49 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  Future<void> LoginPanel() async {
+    var url = "https://thor-aps.herokuapp.com/api/auth/login";
+    try{
+    var res = await http.post(Uri.parse(url), headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+        body: jsonEncode(
+        <String, dynamic>{
+          "email":_emailController.text,
+        "password":_passwordController.text
+        },
+      ),
+
+    );
+    var resData = jsonDecode(res.body);
+    if (resData["success"].toString() == "false") {  
+    } else {
+      Get.to(WelcomeScreen());
+      print((res.body.toString()));
+    }
+    }
+    catch (e){
+      print("Error msg "+e.toString());
+    }
+
+  }
 
   void signIn() {
     if (_formKey.currentState!.validate()) {
        
-      if (_emailController.text.trim()== _email.trim()) {
-        AuthService().login(_email,_passwordController.text).then((val){
-          if(val.data['success']){
-             Fluttertoast.showToast(
-        msg: "Authenticated",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0
-    );
-          }
-        });
-        Get.to(() => WelcomeScreen());
-      } else if (_emailController.text == _subadmin) {
-        Get.to(() => SubAdmin());
-      }
-      else if (_emailController.text == _user) {
-      Get.to(() => DashboardScreen());
-    }
+      // if (_emailController.text.trim()== _email.trim()) {
+       
+       
+    //   } else if (_emailController.text == _subadmin) {
+    //     Get.to(() => SubAdmin());
+    //   }
+    //   else if (_emailController.text == _user) {
+    //   Get.to(() => DashboardScreen());
+    // }
     
-    } else{
-      print("Invalid form");
-    }
+    // } else{
+    //   print("Invalid form");
+     }
   }
 
   @override
@@ -216,8 +228,19 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: TextButton(
                       onPressed: () {
-                        signIn();
+                        LoginPanel();
+                        // AuthService().login(_emailController.text, _passwordController.text);
+                    //      AuthService().login(_emailController.text,_passwordController.text)
+                    //      .then((val){
+                    //       print("value datas "+val.data);
+                    //  if(val.data['success']){
+                    //       Get.to(() => WelcomeScreen());
+                    //            }
+                    //      }
+                    //      );
                       },
+          
+        
                       child: Text(
                         "SIGN IN",
                         style: TextStyle(
