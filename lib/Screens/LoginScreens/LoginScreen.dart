@@ -1,7 +1,5 @@
 import 'package:aps_super_admin/Screens/DashbordScreens/DashboardScreen.dart';
 import 'package:aps_super_admin/interfaces/User/DashboardScreen.dart';
-import 'package:aps_super_admin/interfaces/superAdmin/WelcomeScreen.dart';
-import 'package:aps_super_admin/services/authservice.dart';
 import 'package:aps_super_admin/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -38,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
     var resData = jsonDecode(res.body);
     if (resData["success"].toString() == "false") {  
     } else {
-      Get.to(WelcomeScreen());
+     
       print((res.body.toString()));
     }
     }
@@ -227,8 +225,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     child: TextButton(
                       onPressed: () {
-                         Get.to(WelcomeScreen());
-                        // Get.to(UserDashboardScreen());
+                        //  Get.to(WelcomeScreen());
+                        Get.to(UserDashboardScreen());
                         // LoginPanel();
                         // AuthService().login(_emailController.text, _passwordController.text);
                     //      AuthService().login(_emailController.text,_passwordController.text)
