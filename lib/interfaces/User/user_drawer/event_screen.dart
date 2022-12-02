@@ -4,10 +4,14 @@ import 'package:aps_super_admin/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 class EventScreen extends StatelessWidget {
   const EventScreen({super.key});
-
+_callNumber() async{
+  const number = '911'; //set the number here
+  bool? res = await FlutterPhoneDirectCaller.callNumber(number);
+}
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,10 +37,14 @@ class EventScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(height: 25),
-                CustomButton(txt: "At Location", onPressedf: (){}),
+                CustomButton(txt: "At Location", onPressedf: (){
+                  Get.snackbar("Location", "Send Location acknowledgement to Admins",snackPosition: SnackPosition.BOTTOM);
+                }),
               
                 SizedBox(height: 25),
-                 CustomButton(txt: "Working", onPressedf: (){}),
+                 CustomButton(txt: "Working", onPressedf: (){
+                  Get.snackbar("Working", "Send Working acknowledgement to Admins",snackPosition: SnackPosition.BOTTOM);
+                 }),
                
                 SizedBox(height: 25),
                  CustomButton(txt: "Contained", onPressedf: (){ Get.to(ShareVisualFeed());}),
@@ -47,7 +55,10 @@ class EventScreen extends StatelessWidget {
                  }),
               
                 SizedBox(height: 25),
-                 CustomButton(txt: "Call", onPressedf: (){}),
+                 CustomButton(txt: "Call", onPressedf: (){
+                  Get.snackbar("Call", "Calling.. 911",snackPosition: SnackPosition.BOTTOM);
+                  _callNumber();
+                 }),
               ],
             ),
           ),
