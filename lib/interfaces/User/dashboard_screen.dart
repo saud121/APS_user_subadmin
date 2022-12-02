@@ -1,11 +1,12 @@
-import 'package:aps_super_admin/Screens/LoginScreens/LoginScreen.dart';
+import 'package:aps_super_admin/Screens/EstablishmentScreens/Widget/new_chart.dart';
+import 'package:aps_super_admin/Screens/LoginScreens/loginscreen.dart';
 import 'package:aps_super_admin/Utils/colors.dart';
+import 'package:aps_super_admin/interfaces/User/user_drawer/request_assistance.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../Screens/EstablishmentScreens/Widget/myChart.dart';
-import 'EventScreen.dart';
-import 'SettingScreen.dart';
+import 'user_drawer/event_screen.dart';
+import 'user_drawer/settingscreen.dart';
 
 class UserDashboardScreen extends StatelessWidget {
   const UserDashboardScreen({super.key});
@@ -41,9 +42,19 @@ class UserDashboardScreen extends StatelessWidget {
               ),
             ),
             ListTile(
-              onTap: () {},
+              onTap: () {
+                Get.to(()=>RequestAssitance());
+              },
               leading: Icon(Icons.call),
               title: Text("Request Assitance"),
+            ),
+            
+            ListTile(
+              onTap: () {
+                Get.to(() => EventScreen());
+              },
+              leading: Icon(Icons.event),
+              title: Text("Events"),
             ),
             ListTile(
               onTap: () {
@@ -51,13 +62,6 @@ class UserDashboardScreen extends StatelessWidget {
               },
               leading: Icon(Icons.settings),
               title: Text("Settings"),
-            ),
-            ListTile(
-              onTap: () {
-                Get.to(() => EventScreen());
-              },
-              leading: Icon(Icons.event),
-              title: Text("Events"),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.5,
@@ -89,7 +93,7 @@ class UserDashboardScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              BarChartSample1()
+              BarChartSample3()
             ],
           )),
     );

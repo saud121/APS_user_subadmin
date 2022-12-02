@@ -1,19 +1,16 @@
 import 'package:aps_super_admin/Screens/CTAScreens/CTAScreen.dart';
-import 'package:aps_super_admin/Screens/DashbordScreens/DashboardScreen.dart';
-import 'package:aps_super_admin/Screens/EstablishmentScreens/Widget/myChart.dart';
 import 'package:aps_super_admin/Screens/FeedScreens/FeedScreen.dart';
 import 'package:aps_super_admin/Screens/ManageScreens/ManageScreen.dart';
 import 'package:aps_super_admin/Screens/ManageScreens/subadmin_mange.dart';
 import 'package:aps_super_admin/Screens/NotificationScreens/NotificationScreen.dart';
 import 'package:aps_super_admin/Screens/StorageScreens/StorageScreen.dart';
 import 'package:aps_super_admin/Utils/colors.dart';
-import 'package:aps_super_admin/interfaces/User/EventScreen.dart';
-import 'package:aps_super_admin/interfaces/User/SettingScreen.dart';
 import 'package:aps_super_admin/interfaces/subadmin/screens/subadmindashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 class SubAdmin extends StatefulWidget {
   const SubAdmin({super.key});
 
@@ -32,7 +29,7 @@ class _SubAdminState extends State<SubAdmin> {
         end: Alignment.bottomLeft,
       )),
       child: Scaffold(
-          drawer: Drawer(
+        drawer: Drawer(
           child: ListView(
             children: [
               UserAccountsDrawerHeader(
@@ -47,7 +44,7 @@ class _SubAdminState extends State<SubAdmin> {
                     ),
                   ),
                   accountEmail: Padding(
-                    padding: const EdgeInsets.only(left:16.0),
+                    padding: const EdgeInsets.only(left: 16.0),
                     child: Text(
                       "123@gmail.com",
                       style: GoogleFonts.robotoMono(fontSize: 18),
@@ -171,7 +168,7 @@ class _SubAdminState extends State<SubAdmin> {
           iconTheme: IconThemeData(color: gradientColor2, size: 40),
           title: Text("Sub Admin"),
         ),
-          body: Center(
+        body: Center(
           child: Text("WELCOME TO APS",
               style: TextStyle(
                   color: gradientColor2,
@@ -179,8 +176,7 @@ class _SubAdminState extends State<SubAdmin> {
                   fontFamily: "Major",
                   fontWeight: FontWeight.bold)),
         ),
-          ),
+      ),
     );
-
   }
 }

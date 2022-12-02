@@ -1,6 +1,9 @@
 import 'package:aps_super_admin/Utils/colors.dart';
+import 'package:aps_super_admin/interfaces/User/user_drawer/share_visualfeeds.dart';
+import 'package:aps_super_admin/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 
 class EventScreen extends StatelessWidget {
   const EventScreen({super.key});
@@ -11,8 +14,8 @@ class EventScreen extends StatelessWidget {
       decoration: BoxDecoration(
           gradient: LinearGradient(
         colors: [Colors.white, gradientColor3],
-        begin: Alignment.topRight,
-        end: Alignment.bottomLeft,
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
       )),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -22,31 +25,31 @@ class EventScreen extends StatelessWidget {
           title: Text("Events"),
           centerTitle: true,
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              SizedBox(height: 20),
-              MyContainer(
-                title: "At Location",
-              ),
-              SizedBox(height: 20),
-              MyContainer(
-                title: "Working",
-              ),
-              SizedBox(height: 20),
-              MyContainer(
-                title: "Contained",
-              ),
-              SizedBox(height: 20),
-              MyContainer(
-                title: "Request assistance",
-              ),
-              SizedBox(height: 20),
-              MyContainer(
-                title: "Cannot contain",
-              ),
-            ],
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(height: 25),
+                CustomButton(txt: "At Location", onPressedf: (){}),
+              
+                SizedBox(height: 25),
+                 CustomButton(txt: "Working", onPressedf: (){}),
+               
+                SizedBox(height: 25),
+                 CustomButton(txt: "Contained", onPressedf: (){ Get.to(ShareVisualFeed());}),
+               
+                SizedBox(height: 25),
+                 CustomButton(txt: "Request assistance", onPressedf: (){
+                 
+                 }),
+              
+                SizedBox(height: 25),
+                 CustomButton(txt: "Call", onPressedf: (){}),
+              ],
+            ),
           ),
         ),
       ),
@@ -56,10 +59,12 @@ class EventScreen extends StatelessWidget {
 
 class MyContainer extends StatelessWidget {
   final String title;
+  final Function onPressedf;
 
   MyContainer({
     super.key,
     required this.title,
+    required this.onPressedf
   });
 
   @override
@@ -74,7 +79,7 @@ class MyContainer extends StatelessWidget {
           ]),
           borderRadius: BorderRadius.circular(20)),
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressedf(),
         child: Text(
           title,
           style: GoogleFonts.robotoMono(

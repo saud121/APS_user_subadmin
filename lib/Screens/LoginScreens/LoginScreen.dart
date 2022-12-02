@@ -1,5 +1,4 @@
-import 'package:aps_super_admin/Screens/DashbordScreens/DashboardScreen.dart';
-import 'package:aps_super_admin/interfaces/User/DashboardScreen.dart';
+import 'package:aps_super_admin/interfaces/User/dashboard_screen.dart';
 import 'package:aps_super_admin/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -19,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  Future<void> LoginPanel() async {
+  Future<void> loginPanel() async {
     var url = "https://thor-aps.herokuapp.com/api/auth/login";
     try{
     var res = await http.post(Uri.parse(url), headers: <String, String>{

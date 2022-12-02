@@ -6,7 +6,7 @@ class CustomButton extends StatelessWidget {
   final double buttonHeight= 29;
   final double? buttonWidth=150;
   final bool? checkSize;
-  final double? fontSize=12;
+  final double? fontSize=10;
   final String txt;
   final Function onPressedf;
   CustomButton({ required this.txt,
@@ -19,8 +19,8 @@ class CustomButton extends StatelessWidget {
     
     return Container(
 
-                    height: checkSize != true ?51: buttonHeight,
-                    width: checkSize!=true? 255 :buttonWidth,
+                    height: checkSize != true ?40: buttonHeight,
+                    width: checkSize!=true? 219 :buttonWidth,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
                             colors: [
