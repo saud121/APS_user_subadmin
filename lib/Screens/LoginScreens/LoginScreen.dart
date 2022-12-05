@@ -1,5 +1,6 @@
 import 'package:aps_super_admin/Screens/LoginScreens/forget_password.dart';
 import 'package:aps_super_admin/interfaces/User/dashboard_screen.dart';
+import 'package:aps_super_admin/interfaces/subadmin/subadmin.dart';
 import 'package:aps_super_admin/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -231,7 +232,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: TextButton(
                       onPressed: () {
                         //  Get.to(WelcomeScreen());
-                        Get.to(UserDashboardScreen());
+                        Get.to(SubAdmin());
                         // LoginPanel();
                         // AuthService().login(_emailController.text, _passwordController.text);
                     //      AuthService().login(_emailController.text,_passwordController.text)
