@@ -14,18 +14,13 @@ class ShareVisualFeed extends StatefulWidget {
 }
 
 class _ShareVisualFeedState extends State<ShareVisualFeed> {
-  @override
-   Future<void> findDevice() async{ 
+  Future<void> findDevice() async{ 
   final cameras = await availableCameras();
   final firstCamera = cameras.first;
    Get.to(TakePictureScreen(camera: firstCamera));
    }
-   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    findDevice();
-  }
+ 
+  @override
   Widget build(BuildContext context) {
      // Obtain a list of the available cameras on the device.
    
@@ -42,7 +37,9 @@ class _ShareVisualFeedState extends State<ShareVisualFeed> {
             CustomButton(txt: "Share Image", onPressedf: (){
               findDevice();
             },checkSize: true, ), SizedBox(width: 20,),
-             CustomButton(txt: "Share Video", onPressedf: (){},checkSize: true,)
+             CustomButton(txt: "Share Video", onPressedf: (){
+              findDevice();
+             },checkSize: true,)
           ],
         ),
       ),

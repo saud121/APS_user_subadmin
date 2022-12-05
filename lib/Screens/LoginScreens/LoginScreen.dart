@@ -1,3 +1,4 @@
+import 'package:aps_super_admin/Screens/LoginScreens/forget_password.dart';
 import 'package:aps_super_admin/interfaces/User/dashboard_screen.dart';
 import 'package:aps_super_admin/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
@@ -205,12 +206,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
-                        "Forgot Password?",
-                        style: TextStyle(
-                            fontFamily: "Major",
-                            color: gradientColor2,
-                            fontSize: 20),
+                      GestureDetector(
+                        onTap: () {
+                         Get.to( Forgetpassword());
+                        },
+                        child: Text(
+                          "Forgot Password?",
+                          style: TextStyle(
+                              fontFamily: "Major",
+                              color: gradientColor2,
+                              fontSize: 20),
+                        ),
                       ),
                     ],
                   ),
