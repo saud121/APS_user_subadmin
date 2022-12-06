@@ -1,3 +1,4 @@
+import 'package:aps_super_admin/Screens/LoginScreens/LoginScreen.dart';
 import 'package:aps_super_admin/interfaces/User/user_drawer/change_password.dart';
 import 'package:aps_super_admin/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,9 @@ class SettingScreen extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            CustomButton(txt: "Logout", onPressedf: (){}),
+            CustomButton(txt: "Logout", onPressedf: (){
+              Get.to(LoginScreen());
+            }),
 
           ],
         ),

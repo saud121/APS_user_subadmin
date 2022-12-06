@@ -1,16 +1,10 @@
 import 'package:aps_super_admin/Screens/LoginScreens/controllerdata.dart';
 import 'package:aps_super_admin/Screens/LoginScreens/forget_password.dart';
-import 'package:aps_super_admin/interfaces/User/dashboard_screen.dart';
-import 'package:aps_super_admin/interfaces/subadmin/subadmin.dart';
+import 'package:aps_super_admin/services/authservice.dart';
 import 'package:aps_super_admin/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:get/route_manager.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import '../../Utils/colors.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-
 import 'package:get/get.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -23,65 +17,26 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final pageViewController = Get.put(TestPageViewController());
 
-  List<String> status=["User","SubAdmin"];
   bool isPasswordShown = true;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
-  Future<void> userloginPanel() async {
-    var url = "https://thor-aps.herokuapp.com/api/auth/login";
-    try {
-      var res = await http.post(
-        Uri.parse(url),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-        body: jsonEncode(
-          <String, dynamic>{
-            "email": _emailController.text,
-            "password": _passwordController.text
-          },
-        ),
-      );
-      var resData = jsonDecode(res.body);
-      if (resData["success"].toString() == "false") {
-      } else {
-        Get.to(UserDashboardScreen());
-        print((res.body.toString()));
-      }
-    } catch (e) {
-      print("Error msg " + e.toString());
-    }
-  }
-  Future<void> subAdminLogin() async {
-    var url = "https://thor-aps.herokuapp.com/api/auth/login";
-    try {
-      var res = await http.post(
-        Uri.parse(url),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-        body: jsonEncode(
-          <String, dynamic>{
-            "email": _emailController.text,
-            "password": _passwordController.text
-          },
-        ),
-      );
-      var resData = jsonDecode(res.body);
-      if (resData["success"].toString() == "false") {
-      } else {
-        Get.to(SubAdmin());
-        print((res.body.toString()));
-      }
-    } catch (e) {
-      print("Error msg " + e.toString());
-    }
-  }
 
+    String? email;
+  String? password;
+
+  final _formKey = GlobalKey<FormState>();
+  
+   bool validateAndSave() {
+    final form = _formKey.currentState;
+    if (form!.validate()) {
+      form.save();
+      return true;
+    }
+    return false;
+  }
   void signIn() {
     if (_formKey.currentState!.validate()) {
-      pageViewController.isVisible.value?userloginPanel():subAdminLogin();
+      pageViewController.isVisible.value? AuthService().userloginPanel(_emailController.text,_passwordController.text) :AuthService().subAdminLogin(_emailController.text,_passwordController.text);
     }
   }
 
@@ -117,18 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontSize: 40,
                         color: gradientColor2),
                   ),
-                  //  Padding(
-                  //    padding: const EdgeInsets.only(left:24.0),
-                  //    child: Obx(
-                  //      ()=> Text(
-                  //       pageViewController.isVisible.value? "As User":"As SubAdmin",
-                  //       style: TextStyle(
-                  //            fontFamily: "Times New Roman",
-                  //           fontSize: 40,
-                  //           color: gradientColor2),
-                  //                      ),
-                  //    ),
-                  //  ),
+               
                   const SizedBox(height: 40),
                  Padding(
                    padding: const EdgeInsets.all(8.0),
@@ -160,6 +104,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   CustomtextField(
                     hintText: "Enter Email",
                     controller: _emailController,
+                    onsave: (emails) =>{
+                      email=emails
+                    },
                     prefix: Icon(
                       Icons.person,
                       color: Colors.black,
@@ -181,8 +128,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     hintText: "Enter Password",
                     isPassword: isPasswordShown,
                     controller: _passwordController,
-                    onsave: (password) {
-                      // _formData['password'] = password ?? " ";
+                    onsave: (password)=> {
+                     password=this.password
                     },
                     prefix: Icon(
                       Icons.vpn_key_rounded,
@@ -251,33 +198,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontSize: 30),
                       ),
                     ),
-                    // Obx(() => pageViewController.isVisible.value? TextButton(
-                    //   onPressed: () {
-                    //     Get.to(UserDashboardScreen());
-                    //     // LoginPanel();
-                    //   },
-                    //   child:  Text(
-                    //     "Login",
-                    //     style: TextStyle(
-                    //         fontFamily: "Times New Roman",
-                    //         color: gradientColor2,
-                    //         fontSize: 30),
-                    //   ),
-                    // ):
-                    // TextButton(
-                    //   onPressed: () {
-                    //     Get.to(SubAdmin());
-                    //     // LoginPanel();
-                    //   },
-                    //   child: Text(
-                    //     "Login",
-                    //     style: TextStyle(
-                    //         fontFamily: "Times New Roman",
-                    //         color: gradientColor2,
-                    //         fontSize: 30),
-                    //   ),
-                    // ),
-                    // )
                   ),
                 ],
               ),

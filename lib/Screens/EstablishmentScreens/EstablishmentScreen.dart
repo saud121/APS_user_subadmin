@@ -54,42 +54,24 @@ class _EstablishmentScreenState extends State<EstablishmentScreen> {
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(21)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Total Establishment",
-                          style: GoogleFonts.robotoMono(
-                              fontSize: SubHeadingFontSize,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white)),
-                      Row(children: [
-                        IconButton(
-                            onPressed: () {
-                              setState(() {
-                                if (counter > 0) {
-                                  counter--;
-                                }
-                              });
-                            },
-                            icon: FaIcon(FontAwesomeIcons.minus,
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Total Establishment",
+                            style: GoogleFonts.robotoMono(
+                                fontSize: SubHeadingFontSize,
+                                fontWeight: FontWeight.w600,
                                 color: Colors.white)),
-                        Text(
-                          "${counter}",
-                          style: GoogleFonts.robotoMono(
-                              fontSize: SubHeadingFontSize,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white),
-                        ),
-                        IconButton(
-                            onPressed: () {
-                              setState(() {
-                                counter++;
-                              });
-                            },
-                            icon: FaIcon(FontAwesomeIcons.plus,
+                        Text("3",
+                            style: GoogleFonts.robotoMono(
+                                fontSize: SubHeadingFontSize,
+                                fontWeight: FontWeight.w600,
                                 color: Colors.white)),
-                      ])
-                    ],
+                      
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(

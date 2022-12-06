@@ -29,7 +29,7 @@ class SubAdminDashboard extends StatelessWidget {
            children: [
             SizedBox(child: Image.asset("assets/submap.png"),),
             Padding(
-              padding: const EdgeInsets.all(2.0),
+              padding: const EdgeInsets.all(8.0),
               child: Container (
                 decoration: BoxDecoration(border: Border.all(),
                 borderRadius: BorderRadius.circular(10)
@@ -37,41 +37,44 @@ class SubAdminDashboard extends StatelessWidget {
 
                 
                child: 
-               Column (
-                children:[
+               Padding(
+                 padding: const EdgeInsets.all(10.0),
+                 child: Column (
+                  children:[
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [      Column(
-                  
-                    children: [
-                      CustomText(txt: "Total Employees",fSize:24,isBold:true)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [      Column(
+                    
+                      children: [
+                        CustomText(txt: "Total Employees",fSize:20,isBold:true)
+                      ],
+                    ),
+                    Column(
+                      children: [
+                       CustomText(txt:"10",fSize:20,isBold:true)
+                      ],
+                    ),
                     ],
                   ),
-                  Column(
-                    children: [
-                     CustomText(txt:"10",fSize:24,isBold:true)
+                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [      Column(
+                    
+                      children: [
+                        CustomText(txt:"Area Under Jurisdiction",fSize:20,isBold:true)
+                      ],
+                    ),
+                    Column(
+                      children: [
+                       CustomText(txt:"500m",fSize:20,isBold: true,)
+                      ],
+                    ),
                     ],
                   ),
-                  ],
-                ),
-                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [      Column(
-                  
-                    children: [
-                      CustomText(txt:"Area Under Jurisdiction",fSize:24,isBold:true)
-                    ],
-                  ),
-                  Column(
-                    children: [
-                     CustomText(txt:"500m",fSize:24,isBold: true,)
-                    ],
-                  ),
-                  ],
-                ),
-                                 
-                   ],),
+                                   
+                     ],),
+               ),
                
                
                ),

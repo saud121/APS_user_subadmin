@@ -38,12 +38,12 @@ _callNumber() async{
               children: [
                 SizedBox(height: 25),
                 CustomButton(txt: "At Location", onPressedf: (){
-                  Get.snackbar("Location", "Send Location acknowledgement to Admins",snackPosition: SnackPosition.BOTTOM);
+                  Get.snackbar("Location", "Send Location acknowledgement to Admins",colorText: gradientColor2,backgroundColor: Colors.white,dismissDirection: DismissDirection.horizontal , snackPosition: SnackPosition.BOTTOM);
                 }),
               
                 SizedBox(height: 25),
                  CustomButton(txt: "Working", onPressedf: (){
-                  Get.snackbar("Working", "Send Working acknowledgement to Admins",snackPosition: SnackPosition.BOTTOM);
+                  Get.snackbar("Working", "Send Working acknowledgement to Admins",colorText: gradientColor2,backgroundColor: Colors.white,dismissDirection: DismissDirection.horizontal ,snackPosition: SnackPosition.BOTTOM);
                  }),
                
                 SizedBox(height: 25),
@@ -56,7 +56,7 @@ _callNumber() async{
               
                 SizedBox(height: 25),
                  CustomButton(txt: "Call", onPressedf: (){
-                  Get.snackbar("Call", "Calling.. 911",snackPosition: SnackPosition.BOTTOM);
+                  Get.snackbar("Calling", "Calling 911",colorText: gradientColor2,backgroundColor: Colors.white,dismissDirection: DismissDirection.horizontal ,snackPosition: SnackPosition.BOTTOM);
                   _callNumber();
                  }),
               ],

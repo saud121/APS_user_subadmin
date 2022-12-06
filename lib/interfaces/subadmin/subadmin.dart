@@ -1,7 +1,6 @@
 import 'package:aps_super_admin/Screens/CTAScreens/CTAScreen.dart';
 import 'package:aps_super_admin/Screens/FeedScreens/FeedScreen.dart';
 import 'package:aps_super_admin/Screens/LoginScreens/LoginScreen.dart';
-import 'package:aps_super_admin/Screens/ManageScreens/ManageScreen.dart';
 import 'package:aps_super_admin/Screens/ManageScreens/subadmin_mange.dart';
 import 'package:aps_super_admin/Screens/NotificationScreens/NotificationScreen.dart';
 import 'package:aps_super_admin/Screens/StorageScreens/StorageScreen.dart';

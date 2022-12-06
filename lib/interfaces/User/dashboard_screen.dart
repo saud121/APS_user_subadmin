@@ -63,17 +63,20 @@ class UserDashboardScreen extends StatelessWidget {
               title: Text("Settings"),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.3,
+              height: 40,
             ),
-            TextButton(
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.black,
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.black,
+                ),
+                onPressed: () {
+                  Get.to(LoginScreen());
+                },
+                child: Text("Sign Out"),
               ),
-              onPressed: () {
-                Get.to(LoginScreen());
-              },
-              child: Text("Sign Out"),
             )
           ])),
           body: Column(

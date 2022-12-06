@@ -65,12 +65,7 @@ class BarCharts extends StatelessWidget {
       case 4:
         text = 'Positive-Rate';
         break;
-      case 5:
-        text = 'St';
-        break;
-      case 6:
-        text = 'Sn';
-        break;
+     
       default:
         text = '';
         break;
@@ -166,26 +161,7 @@ class BarCharts extends StatelessWidget {
           ],
           showingTooltipIndicators: [0],
         ),
-        // BarChartGroupData(
-        //   x: 5,
-        //   barRods: [
-        //     BarChartRodData(
-        //       toY: 10,
-        //       gradient: _barsGradient,
-        //     )
-        //   ],
-        //   showingTooltipIndicators: [0],
-        // ),
-        // BarChartGroupData(
-        //   x: 6,
-        //   barRods: [
-        //     BarChartRodData(
-        //       toY: 16,
-        //       gradient: _barsGradient,
-        //     )
-        //   ],
-        //   showingTooltipIndicators: [0],
-        // ),
+        
       ];
 }
 

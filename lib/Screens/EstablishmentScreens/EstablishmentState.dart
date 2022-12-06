@@ -1,3 +1,4 @@
+import 'package:aps_super_admin/Screens/EstablishmentScreens/Widget/new_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -5,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../Utils/colors.dart';
-import 'Widget/myChart.dart';
+
 
 class EstablishmentState extends StatelessWidget {
   const EstablishmentState({super.key});
@@ -94,7 +95,7 @@ class EstablishmentState extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
-                      BarChartSample1(),
+                      BarChartSample3(),
                     ],
                   ),
                 )

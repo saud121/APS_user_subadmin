@@ -80,7 +80,7 @@ class _ManageScreenState extends State<ManageScreen> {
                                     Get.to(() => EstablishmentScreen());
                                   },
                                   child: Text(
-                                    "Establishments",
+                                    "Manage Establishments",
                                     style: GoogleFonts.robotoMono(
                                         fontSize: SubHeadingFontSize,
                                         color: Colors.white),
@@ -110,7 +110,7 @@ class _ManageScreenState extends State<ManageScreen> {
                                     Get.to(() => EmployeeScreen());
                                   },
                                   child: Text(
-                                    "Employees",
+                                    "Manage Employees",
                                     style: GoogleFonts.robotoMono(
                                         fontSize: SubHeadingFontSize,
                                         color: Colors.white),
