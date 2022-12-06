@@ -27,6 +27,7 @@ dependencies:
   path_provider:
   path:
   flutter_phone_direct_caller: ^2.1.1
+  toggle_switch: ^2.0.1
 icons_launcher:
   image_path: 'assets/AppLogo.png'
   platforms:

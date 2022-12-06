@@ -1,5 +1,6 @@
 import 'package:aps_super_admin/Screens/CTAScreens/CTAScreen.dart';
 import 'package:aps_super_admin/Screens/FeedScreens/FeedScreen.dart';
+import 'package:aps_super_admin/Screens/LoginScreens/LoginScreen.dart';
 import 'package:aps_super_admin/Screens/ManageScreens/ManageScreen.dart';
 import 'package:aps_super_admin/Screens/ManageScreens/subadmin_mange.dart';
 import 'package:aps_super_admin/Screens/NotificationScreens/NotificationScreen.dart';
@@ -158,7 +159,25 @@ class _SubAdminState extends State<SubAdmin> {
                   Get.to(() => CTAScreen());
                 },
               ),
+              SizedBox(
+              height: 170,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.black,
+                ),
+                onPressed: () {
+                  Get.to(LoginScreen());
+                },
+                child: Text("Sign Out"),
+              ),
+            ) 
+
             ],
+            
           ),
         ),
         backgroundColor: Colors.transparent,
