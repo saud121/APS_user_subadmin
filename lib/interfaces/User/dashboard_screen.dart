@@ -43,12 +43,11 @@ class UserDashboardScreen extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                Get.to(()=>RequestAssitance());
+                Get.to(() => RequestAssitance());
               },
               leading: Icon(Icons.call),
               title: Text("Request Assitance"),
             ),
-            
             ListTile(
               onTap: () {
                 Get.to(() => EventScreen());
@@ -64,7 +63,7 @@ class UserDashboardScreen extends StatelessWidget {
               title: Text("Settings"),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.5,
+              height: MediaQuery.of(context).size.height * 0.3,
             ),
             TextButton(
               style: TextButton.styleFrom(
@@ -75,7 +74,7 @@ class UserDashboardScreen extends StatelessWidget {
                 Get.to(LoginScreen());
               },
               child: Text("Sign Out"),
-            ) 
+            )
           ])),
           body: Column(
             children: [

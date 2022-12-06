@@ -160,24 +160,22 @@ class _SubAdminState extends State<SubAdmin> {
                 },
               ),
               SizedBox(
-              height: 170,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: Colors.black,
-                ),
-                onPressed: () {
-                  Get.to(LoginScreen());
-                },
-                child: Text("Sign Out"),
+                height: 150,
               ),
-            ) 
-
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.black,
+                  ),
+                  onPressed: () {
+                    Get.to(LoginScreen());
+                  },
+                  child: Text("Sign Out"),
+                ),
+              )
             ],
-            
           ),
         ),
         backgroundColor: Colors.transparent,
