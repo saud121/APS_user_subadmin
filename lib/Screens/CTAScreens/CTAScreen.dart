@@ -106,7 +106,7 @@ class CTAScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(21)),
                       child: TextButton(
                         onPressed: () {
-                          Get.snackbar("Call 911", "", colorText: Colors.white);
+                          Get.snackbar("Calling 911", "", backgroundColor: Colors.white,colorText: gradientColor2,dismissDirection: DismissDirection.horizontal);
                         },
                         child: Text(
                           "Call",

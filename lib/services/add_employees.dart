@@ -1,3 +1,4 @@
+import 'package:aps_super_admin/Utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/route_manager.dart';
@@ -25,7 +26,7 @@ class AddEmployee{
     var resData = jsonDecode(res.body);
     if (resData["success"].toString() == "false") {  
     } else {
-      Get.snackbar("Register","SuccessFull");
+      Get.snackbar("Register","SuccessFull",backgroundColor: Colors.white,colorText: gradientColor2,dismissDirection: DismissDirection.horizontal);
       print((res.body.toString()));
     }
     }

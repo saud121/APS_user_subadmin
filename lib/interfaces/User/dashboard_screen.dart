@@ -32,7 +32,7 @@ class UserDashboardScreen extends StatelessWidget {
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(color: Colors.black),
               accountName: Text("User"),
-              accountEmail: Text("123@gmail.com"),
+              accountEmail: Text("abc@gmail.com"),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.white,
                 child: Text(

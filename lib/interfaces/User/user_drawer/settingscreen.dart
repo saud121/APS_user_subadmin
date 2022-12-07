@@ -20,10 +20,10 @@ class SettingScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomButton(txt: "Profile", onPressedf: (){}),
-            SizedBox(
-              height: 10,
-            ),
+            // CustomButton(txt: "Profile", onPressedf: (){}),
+            // SizedBox(
+            //   height: 10,
+            // ),
             CustomButton(txt: "Change password", onPressedf: (){
               Get.to(ChangePassword());
             }),

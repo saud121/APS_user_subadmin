@@ -14,10 +14,10 @@ class ShareVisualFeed extends StatefulWidget {
 }
 
 class _ShareVisualFeedState extends State<ShareVisualFeed> {
-  Future<void> findDevice() async{ 
+  Future<void> findDevice(String title) async{ 
   final cameras = await availableCameras();
   final firstCamera = cameras.first;
-   Get.to(TakePictureScreen(camera: firstCamera));
+   Get.to(TakePictureScreen(camera: firstCamera,title:title));
    }
  
   @override
@@ -35,11 +35,9 @@ class _ShareVisualFeedState extends State<ShareVisualFeed> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomButton(txt: "Share Image", onPressedf: (){
-              findDevice();
-            },checkSize: true, ), SizedBox(width: 20,),
-             CustomButton(txt: "Share Video", onPressedf: (){
-              findDevice();
-             },checkSize: true,)
+              findDevice("Take a Picture");
+            },checkSize: false, ), SizedBox(width: 20,),
+           
           ],
         ),
       ),
@@ -52,10 +50,11 @@ class TakePictureScreen extends StatefulWidget {
   const TakePictureScreen({
     super.key,
     required this.camera,
+    required this.title,
   });
 
   final CameraDescription camera;
-
+ final String title;
   @override
   TakePictureScreenState createState() => TakePictureScreenState();
 }
@@ -67,16 +66,13 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   @override
   void initState() {
     super.initState();
-    // To display the current output from the Camera,
-    // create a CameraController.
+ 
     _controller = CameraController(
-      // Get a specific camera from the list of available cameras.
+     
       widget.camera,
-      // Define the resolution to use.
+     
       ResolutionPreset.medium,
     );
-
-    // Next, initialize the controller. This returns a Future.
     _initializeControllerFuture = _controller.initialize();
   }
 
@@ -90,10 +86,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Take a picture')),
-      // You must wait until the controller is initialized before displaying the
-      // camera preview. Use a FutureBuilder to display a loading spinner until the
-      // controller has finished initializing.
+      appBar: AppBar(title:Text(widget.title),backgroundColor: Colors.black,),
       body: FutureBuilder<void>(
         future: _initializeControllerFuture,
         builder: (context, snapshot) {
@@ -151,7 +144,9 @@ class DisplayPictureScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Display the Picture')),
+      appBar: AppBar(title: const Text('Display the Picture'), backgroundColor: Colors.black,actions: [IconButton(onPressed: (() {
+        
+      }), icon: Icon(Icons.share))],),
       // The image is stored as a file on the device. Use the `Image.file`
       // constructor with the given path to display the image.
       body: Image.file(File(imagePath)),
