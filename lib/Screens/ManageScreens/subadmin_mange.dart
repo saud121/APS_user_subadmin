@@ -45,15 +45,13 @@ class SubAdminManageScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Center(
                 child: Container(
-                  height: 51,
-                  width: 255,
+                  height: 100,
+                  width: 300,
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
                           colors: [
-                             Color.fromARGB(255, 83, 4, 4),
+                            Color.fromARGB(255, 83, 4, 4),
                             gradientColor2,
-        
-                            
                           ],
                           begin: Alignment.bottomCenter,
                           end: Alignment.topCenter),
@@ -65,8 +63,7 @@ class SubAdminManageScreen extends StatelessWidget {
                       child: Text(
                         "Employees",
                         style: GoogleFonts.robotoMono(
-                            fontSize: SubHeadingFontSize,
-                            color: Colors.white),
+                            fontSize: HeadingFontSize, color: Colors.white),
                       )),
                 ),
               ),

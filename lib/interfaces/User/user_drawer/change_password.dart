@@ -40,7 +40,7 @@ class _ChangepasswordState extends State<ChangePassword> {
       var resData = jsonDecode(res.body);
       if (resData["success"].toString() == "false") {
       } else {
-        Get.to(UserDashboardScreen());
+       
         print((res.body.toString()));
       }
     } catch (e) {
@@ -69,6 +69,7 @@ class _ChangepasswordState extends State<ChangePassword> {
         ),
       ),
       child: Scaffold(
+        appBar: AppBar(title: Text("Update Password"),backgroundColor:  Colors.black,),
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
           child: Form(
@@ -84,7 +85,7 @@ class _ChangepasswordState extends State<ChangePassword> {
                     style: TextStyle(
                         fontFamily: "Times New Roman",
                         fontSize: 57,
-                        color: textColor),
+                        color: gradientColor2),
                   ),
                   const SizedBox(height: 60),
                  
@@ -157,8 +158,8 @@ class _ChangepasswordState extends State<ChangePassword> {
                         if (password!.isEmpty ){
                           return "New password can't be empty";
                         }
-                        else if( password.length < 7) {
-                          return "New password should be more than 7 char";
+                        else if( password.length < 3) {
+                          return "New password should be more than 3 char";
                         }
                         return null;
                       },
@@ -180,7 +181,7 @@ class _ChangepasswordState extends State<ChangePassword> {
                         style: TextStyle(
                             fontFamily: "Times new Roman",
                             fontWeight: FontWeight.w600,
-                            color: Color.fromARGB(255, 9, 32, 100),
+                            color: gradientColor2,
                             fontSize: 30),
                       ),
                     ),

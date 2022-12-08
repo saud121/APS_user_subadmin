@@ -11,7 +11,7 @@ class CameraScreen extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(
-        colors: [Colors.white, gradientColor3],
+        colors: [Color.fromARGB(255, 236, 233, 233), gradientColor3],
         begin: Alignment.topRight,
         end: Alignment.bottomLeft,
       )),
@@ -25,7 +25,7 @@ class CameraScreen extends StatelessWidget {
                 },
                 icon: Icon(Icons.arrow_back)),
             centerTitle: true,
-            title: Text("Camera"),
+            title: Text("Camera",style: TextStyle(fontWeight: FontWeight.bold),),
           ),
           body: Padding(
             padding: EdgeInsets.all(8),
@@ -39,7 +39,7 @@ class CameraScreen extends StatelessWidget {
                         style: GoogleFonts.robotoMono(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: SubHeadingFontSize),
+                            fontSize: HeadingFontSize),
                       ),
                       SizedBox(
                         height: 10,
@@ -65,7 +65,7 @@ class CameraScreen extends StatelessWidget {
                         style: GoogleFonts.robotoMono(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: SubHeadingFontSize),
+                            fontSize: HeadingFontSize),
                       ),
                       SizedBox(
                         height: 10,

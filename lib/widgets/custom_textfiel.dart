@@ -8,10 +8,13 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  return Text(txt,style: GoogleFonts.robotoMono(
-                                           color: Colors.white,
-                                           fontSize: fSize,
-                                           fontWeight: isBold==true? FontWeight.bold:null));
+  return Padding(
+    padding: const EdgeInsets.all(2.0),
+    child: Text(txt,style: GoogleFonts.robotoMono(
+                                             color: Colors.white,
+                                             fontSize: fSize,
+                                             fontWeight: isBold==true? FontWeight.bold:null)),
+  );
 }
   
 }

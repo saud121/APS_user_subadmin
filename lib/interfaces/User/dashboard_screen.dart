@@ -9,7 +9,8 @@ import 'user_drawer/event_screen.dart';
 import 'user_drawer/settingscreen.dart';
 
 class UserDashboardScreen extends StatelessWidget {
-  const UserDashboardScreen({super.key});
+  UserDashboardScreen({super.key, required this.email});
+  String email;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class UserDashboardScreen extends StatelessWidget {
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(color: Colors.black),
               accountName: Text("User"),
-              accountEmail: Text("abc@gmail.com"),
+              accountEmail: Text(email),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.white,
                 child: Text(
@@ -46,21 +47,30 @@ class UserDashboardScreen extends StatelessWidget {
                 Get.to(() => RequestAssitance());
               },
               leading: Icon(Icons.call),
-              title: Text("Request Assitance"),
+              title: Text("Request Assitance",style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),),
             ),
             ListTile(
               onTap: () {
                 Get.to(() => EventScreen());
               },
               leading: Icon(Icons.event),
-              title: Text("Events"),
+              title: Text("Events",style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),),
             ),
             ListTile(
               onTap: () {
                 Get.to(() => SettingScreen());
               },
               leading: Icon(Icons.settings),
-              title: Text("Settings"),
+              title: Text("Settings",style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),),
             ),
             SizedBox(
               height: 40,
@@ -75,7 +85,10 @@ class UserDashboardScreen extends StatelessWidget {
                 onPressed: () {
                   Get.to(LoginScreen());
                 },
-                child: Text("Sign Out"),
+                child: Text("Sign Out",style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),),
               ),
             )
           ])),

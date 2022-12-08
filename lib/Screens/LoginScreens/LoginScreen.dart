@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     "Sign In",
                     style: TextStyle(
-                        fontFamily: "Times New Roman",
+                        fontFamily: "Major",
                         fontSize: 40,
                         color: gradientColor2),
                   ),
@@ -170,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           "Forgot Password?",
                           style: TextStyle(
-                            fontFamily: "Times New Roman",
+                            fontFamily: "Major",
                             fontWeight: FontWeight.bold,
                               color: gradientColor2,
                               fontSize: 20),
@@ -193,7 +193,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child:  Text(
                         "Login",
                         style: TextStyle(
-                            fontFamily: "Times New Roman",
+                            fontFamily: "Major",
                             color: gradientColor2,
                             fontSize: 30),
                       ),

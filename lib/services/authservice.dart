@@ -27,7 +27,7 @@ class AuthService {
        CustomSnackbar("Invalid", "Invalid Credentials");
     } else {
      CustomSnackbar("Login", "Login SuccessFull");
-      Get.to(UserDashboardScreen());
+      Get.to(UserDashboardScreen(email: email,));
     }
     }
     catch(e){
@@ -51,7 +51,7 @@ class AuthService {
       if (resData["success"].toString() == "false") {
       } else {
         CustomSnackbar("Login", "SuccessFully Login");
-        Get.to(SubAdmin());
+        Get.to(SubAdmin(email: email,));
         
       }
     } catch (e) {

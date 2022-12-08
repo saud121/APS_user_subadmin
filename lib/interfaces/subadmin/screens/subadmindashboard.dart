@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:aps_super_admin/Utils/colors.dart';
 import 'package:aps_super_admin/widgets/custom_textfiel.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 class SubAdminDashboard extends StatelessWidget {
   const SubAdminDashboard({super.key});
@@ -27,7 +28,7 @@ class SubAdminDashboard extends StatelessWidget {
          child: Column(
           
            children: [
-            SizedBox(child: Image.asset("assets/submap.png"),),
+            SizedBox(child: Image.asset("assets/submap.png"),width: Get.width*.75,),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container (
