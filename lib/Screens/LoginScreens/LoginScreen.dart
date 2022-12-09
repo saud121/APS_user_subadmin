@@ -37,6 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void signIn() {
     if (_formKey.currentState!.validate()) {
       pageViewController.isVisible.value? AuthService().userloginPanel(_emailController.text,_passwordController.text) :AuthService().subAdminLogin(_emailController.text,_passwordController.text);
+
     }
   }
 
@@ -72,7 +73,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontSize: 40,
                         color: gradientColor2),
                   ),
-               
                   const SizedBox(height: 40),
                  Padding(
                    padding: const EdgeInsets.all(8.0),
@@ -107,6 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     onsave: (emails) =>{
                       email=emails
                     },
+
                     prefix: Icon(
                       Icons.person,
                       color: Colors.black,
@@ -130,6 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     controller: _passwordController,
                     onsave: (password)=> {
                      password=this.password
+
                     },
                     prefix: Icon(
                       Icons.vpn_key_rounded,
@@ -153,12 +155,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     validate: (password) {
                       if (password!.isEmpty || password.length < 3) {
+
                         return "enter Correct password";
                       }
                       return null;
                     },
                   ),
-
                   SizedBox(height: 30),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -192,6 +194,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       child:  Text(
                         "Login",
+
                         style: TextStyle(
                             fontFamily: "Major",
                             color: gradientColor2,
