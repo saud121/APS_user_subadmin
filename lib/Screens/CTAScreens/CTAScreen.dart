@@ -2,6 +2,7 @@ import 'package:aps_super_admin/Screens/CTAScreens/InnerPage/DeployScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,7 +10,10 @@ import '../../Utils/colors.dart';
 
 class CTAScreen extends StatelessWidget {
   const CTAScreen({super.key});
-
+_callNumber() async{
+  const number = '911'; //set the number here
+  bool? res = await FlutterPhoneDirectCaller.callNumber(number);
+}
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,12 +33,14 @@ class CTAScreen extends StatelessWidget {
                 },
                 icon: Icon(Icons.arrow_back)),
             centerTitle: true,
-            title: Text("CTA Screen"),
+            title: Text("CTA Screen",style: TextStyle(fontWeight: FontWeight.bold),),
           ),
           body: Padding(
             padding: EdgeInsets.all(8),
             child: Column(
+             
               children: [
+                SizedBox(height: 100,),
                 Center(
                   child: Container(
                       height: 71,
@@ -42,11 +48,11 @@ class CTAScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
                               colors: [
-                                gradientColor1,
+                                gradientColor5,
                                 gradientColor2,
                               ],
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft),
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter),
                           borderRadius: BorderRadius.circular(21)),
                       child: TextButton(
                         onPressed: () {},
@@ -54,8 +60,8 @@ class CTAScreen extends StatelessWidget {
                           "Cancel",
                           style: GoogleFonts.robotoMono(
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: SubHeadingFontSize),
+                              fontWeight: FontWeight.w400,
+                              fontSize: HeadingFontSize),
                         ),
                       )),
                 ),
@@ -67,13 +73,13 @@ class CTAScreen extends StatelessWidget {
                       height: 71,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
+                         gradient: LinearGradient(
                               colors: [
-                                gradientColor1,
+                                gradientColor5,
                                 gradientColor2,
                               ],
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft),
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter),
                           borderRadius: BorderRadius.circular(21)),
                       child: TextButton(
                         onPressed: () {
@@ -83,8 +89,8 @@ class CTAScreen extends StatelessWidget {
                           "Deploy",
                           style: GoogleFonts.robotoMono(
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: SubHeadingFontSize),
+                              fontWeight: FontWeight.w400,
+                              fontSize: HeadingFontSize),
                         ),
                       )),
                 ),
@@ -96,24 +102,25 @@ class CTAScreen extends StatelessWidget {
                       height: 71,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
+                         gradient: LinearGradient(
                               colors: [
-                                gradientColor1,
+                                gradientColor5,
                                 gradientColor2,
                               ],
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft),
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter),
                           borderRadius: BorderRadius.circular(21)),
                       child: TextButton(
                         onPressed: () {
-                          Get.snackbar("Call 911", "", colorText: Colors.white);
+                          Get.snackbar("Calling 911", "", backgroundColor: Colors.white,colorText: gradientColor2,dismissDirection: DismissDirection.horizontal);
+                        _callNumber();
                         },
                         child: Text(
                           "Call",
                           style: GoogleFonts.robotoMono(
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: SubHeadingFontSize),
+                              fontWeight: FontWeight.w400,
+                              fontSize: HeadingFontSize),
                         ),
                       )),
                 ),
@@ -125,13 +132,13 @@ class CTAScreen extends StatelessWidget {
                       height: 71,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          gradient: LinearGradient(
+                        gradient: LinearGradient(
                               colors: [
-                                gradientColor1,
+                                gradientColor5,
                                 gradientColor2,
                               ],
-                              begin: Alignment.topRight,
-                              end: Alignment.bottomLeft),
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter),
                           borderRadius: BorderRadius.circular(21)),
                       child: TextButton(
                         onPressed: () {},
@@ -139,8 +146,8 @@ class CTAScreen extends StatelessWidget {
                           "Stay",
                           style: GoogleFonts.robotoMono(
                               color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: SubHeadingFontSize),
+                              fontWeight: FontWeight.w400,
+                              fontSize: HeadingFontSize),
                         ),
                       )),
                 )

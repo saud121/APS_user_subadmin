@@ -1,8 +1,12 @@
 import 'package:aps_super_admin/Screens/SplashScreens/splash_screen.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
+Future<void> main() async{
+   WidgetsFlutterBinding.ensureInitialized();
+
+
   runApp(const MyApp());
 }
 

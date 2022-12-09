@@ -31,10 +31,10 @@ class DroneScreen extends StatelessWidget {
                   },
                   icon: Icon(Icons.arrow_back)),
               centerTitle: true,
-              title: Text("Drone Screen"),
+              title: Text("Feed Screen"),
             ),
             body: Padding(
-              padding: EdgeInsets.all(8),
+              padding: EdgeInsets.all(18),
               child: Column(
                 children: [
                   Center(
@@ -47,24 +47,24 @@ class DroneScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                     colors: [
-                                      gradientColor1,
+                                      gradientColor5,
                                       gradientColor2,
                                     ],
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft),
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter),
                                 borderRadius: BorderRadius.circular(25)),
                             child: Column(
                               children: [
-                                Text(
-                                  "Drone",
+                                Text("Camera"
+                                  ,
                                   style: GoogleFonts.robotoMono(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: SubHeadingFontSize),
+                                      fontSize: HeadingFontSize),
                                 ),
                                 Divider(
                                   color: Colors.black,
-                                  thickness: 2,
+                                  thickness: 6,
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -99,6 +99,7 @@ class DroneScreen extends StatelessWidget {
                                               "Drone 1",
                                               style: GoogleFonts.robotoMono(
                                                   color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
                                                   fontSize: 18),
                                             ),
                                             FaIcon(
@@ -135,7 +136,8 @@ class DroneScreen extends StatelessWidget {
                                             "Live Tracking",
                                             style: GoogleFonts.robotoMono(
                                                 color: Colors.white,
-                                                fontSize: 18),
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16),
                                           ),
                                         ))
                                   ],
@@ -147,7 +149,7 @@ class DroneScreen extends StatelessWidget {
                         ),
                         Divider(
                           color: Colors.black,
-                          thickness: 2,
+                          thickness: 6,
                         ),
                         SizedBox(
                           height: 20,
@@ -159,24 +161,25 @@ class DroneScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                     colors: [
-                                      gradientColor1,
+                                      gradientColor5,
                                       gradientColor2,
                                     ],
-                                    begin: Alignment.topRight,
-                                    end: Alignment.bottomLeft),
+                                    begin: Alignment.bottomCenter,
+                                    end: Alignment.topCenter),
                                 borderRadius: BorderRadius.circular(25)),
                             child: Column(
                               children: [
                                 Text(
-                                  "Camera",
+                                  "Drone"
+                                  ,
                                   style: GoogleFonts.robotoMono(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: SubHeadingFontSize),
+                                      fontSize: HeadingFontSize),
                                 ),
                                 Divider(
                                   color: Colors.black,
-                                  thickness: 2,
+                                  thickness: 6,
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -211,6 +214,7 @@ class DroneScreen extends StatelessWidget {
                                               "Drone 1",
                                               style: GoogleFonts.robotoMono(
                                                   color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
                                                   fontSize: 18),
                                             ),
                                             FaIcon(
@@ -247,7 +251,8 @@ class DroneScreen extends StatelessWidget {
                                             "Live Footage",
                                             style: GoogleFonts.robotoMono(
                                                 color: Colors.white,
-                                                fontSize: 18),
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16),
                                           ),
                                         ))
                                   ],

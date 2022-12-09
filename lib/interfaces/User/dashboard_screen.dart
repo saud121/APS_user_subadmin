@@ -1,14 +1,16 @@
-import 'package:aps_super_admin/Screens/LoginScreens/LoginScreen.dart';
+import 'package:aps_super_admin/Screens/EstablishmentScreens/Widget/new_chart.dart';
+import 'package:aps_super_admin/Screens/LoginScreens/loginscreen.dart';
 import 'package:aps_super_admin/Utils/colors.dart';
+import 'package:aps_super_admin/interfaces/User/user_drawer/request_assistance.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../Screens/EstablishmentScreens/Widget/myChart.dart';
-import 'EventScreen.dart';
-import 'SettingScreen.dart';
+import 'user_drawer/event_screen.dart';
+import 'user_drawer/settingscreen.dart';
 
 class UserDashboardScreen extends StatelessWidget {
-  const UserDashboardScreen({super.key});
+  UserDashboardScreen({super.key, required this.email});
+  String email;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class UserDashboardScreen extends StatelessWidget {
             UserAccountsDrawerHeader(
               decoration: BoxDecoration(color: Colors.black),
               accountName: Text("User"),
-              accountEmail: Text("123@gmail.com"),
+              accountEmail: Text(email),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.white,
                 child: Text(
@@ -41,37 +43,54 @@ class UserDashboardScreen extends StatelessWidget {
               ),
             ),
             ListTile(
-              onTap: () {},
-              leading: Icon(Icons.call),
-              title: Text("Request Assitance"),
-            ),
-            ListTile(
               onTap: () {
-                Get.to(() => SettingScreen());
+                Get.to(() => RequestAssitance());
               },
-              leading: Icon(Icons.settings),
-              title: Text("Settings"),
+              leading: Icon(Icons.call),
+              title: Text("Request Assitance",style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),),
             ),
             ListTile(
               onTap: () {
                 Get.to(() => EventScreen());
               },
               leading: Icon(Icons.event),
-              title: Text("Events"),
+              title: Text("Events",style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),),
+            ),
+            ListTile(
+              onTap: () {
+                Get.to(() => SettingScreen());
+              },
+              leading: Icon(Icons.settings),
+              title: Text("Settings",style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.5,
+              height: 40,
             ),
-            TextButton(
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.black,
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.black,
+                ),
+                onPressed: () {
+                  Get.to(LoginScreen());
+                },
+                child: Text("Sign Out",style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),),
               ),
-              onPressed: () {
-                Get.to(LoginScreen());
-              },
-              child: Text("Sign Out"),
-            ) 
+            )
           ])),
           body: Column(
             children: [
@@ -89,7 +108,7 @@ class UserDashboardScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              BarChartSample1()
+              BarChartSample3()
             ],
           )),
     );

@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.aps_super_admin">
+    package="com.example.aps_user_subadmin">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="APS"
+        android:label="User and Subadmin"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -31,4 +32,5 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+    
 </manifest>

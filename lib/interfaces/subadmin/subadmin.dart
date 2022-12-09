@@ -1,22 +1,20 @@
 import 'package:aps_super_admin/Screens/CTAScreens/CTAScreen.dart';
-import 'package:aps_super_admin/Screens/DashbordScreens/DashboardScreen.dart';
-import 'package:aps_super_admin/Screens/EstablishmentScreens/Widget/myChart.dart';
 import 'package:aps_super_admin/Screens/FeedScreens/FeedScreen.dart';
-import 'package:aps_super_admin/Screens/ManageScreens/ManageScreen.dart';
+import 'package:aps_super_admin/Screens/FeedScreens/Pages/DroneScreen.dart';
+import 'package:aps_super_admin/Screens/LoginScreens/LoginScreen.dart';
 import 'package:aps_super_admin/Screens/ManageScreens/subadmin_mange.dart';
 import 'package:aps_super_admin/Screens/NotificationScreens/NotificationScreen.dart';
 import 'package:aps_super_admin/Screens/StorageScreens/StorageScreen.dart';
 import 'package:aps_super_admin/Utils/colors.dart';
-import 'package:aps_super_admin/interfaces/User/EventScreen.dart';
-import 'package:aps_super_admin/interfaces/User/SettingScreen.dart';
 import 'package:aps_super_admin/interfaces/subadmin/screens/subadmindashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
-class SubAdmin extends StatefulWidget {
-  const SubAdmin({super.key});
 
+class SubAdmin extends StatefulWidget {
+  SubAdmin({super.key, required this.email});
+  String email;
   @override
   State<SubAdmin> createState() => _SubAdminState();
 }
@@ -32,7 +30,7 @@ class _SubAdminState extends State<SubAdmin> {
         end: Alignment.bottomLeft,
       )),
       child: Scaffold(
-          drawer: Drawer(
+        drawer: Drawer(
           child: ListView(
             children: [
               UserAccountsDrawerHeader(
@@ -42,35 +40,37 @@ class _SubAdminState extends State<SubAdmin> {
                   accountName: Padding(
                     padding: const EdgeInsets.only(left: 16),
                     child: Text(
-                      "SubAdmin",
+                      "Admin",
                       style: GoogleFonts.robotoMono(fontSize: 18),
                     ),
                   ),
                   accountEmail: Padding(
-                    padding: const EdgeInsets.only(left:16.0),
+                    padding: const EdgeInsets.only(left: 16.0),
                     child: Text(
-                      "123@gmail.com",
+                      widget.email,
                       style: GoogleFonts.robotoMono(fontSize: 18),
                     ),
                   ),
                   currentAccountPicture: Padding(
                     padding: const EdgeInsets.only(left: 16),
                     child: CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: Image.asset("assets/avatar.png")),
+                        backgroundColor: Color.fromARGB(255, 190, 46, 46),
+                        child: Image.asset("assets/avatar.png",)
+                        )
+                        ,
                   )),
               ListTile(
                 horizontalTitleGap: 0,
                 leading: FaIcon(
                   FontAwesomeIcons.gauge,
-                  color: gradientColor2,
+                  
                 ),
                 title: Text(
                   "Dashboard",
-                  style: GoogleFonts.robotoMono(
-                      color: gradientColor2,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20),
+                  style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),
                 ),
                 onTap: () {
                   Get.to(() => SubAdminDashboard());
@@ -80,14 +80,14 @@ class _SubAdminState extends State<SubAdmin> {
                 horizontalTitleGap: 0,
                 leading: FaIcon(
                   FontAwesomeIcons.gear,
-                  color: gradientColor2,
+                  
                 ),
                 title: Text(
                   "Manage",
-                  style: GoogleFonts.robotoMono(
-                      color: gradientColor2,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20),
+                  style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),
                 ),
                 onTap: () {
                   Get.to(() => SubAdminManageScreen());
@@ -97,14 +97,14 @@ class _SubAdminState extends State<SubAdmin> {
                 horizontalTitleGap: 0,
                 leading: FaIcon(
                   FontAwesomeIcons.solidBell,
-                  color: gradientColor2,
+                  
                 ),
                 title: Text(
                   "Notifications",
-                  style: GoogleFonts.robotoMono(
-                      color: gradientColor2,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20),
+                  style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),
                 ),
                 onTap: () {
                   Get.to(() => NotificationScreen());
@@ -113,54 +113,56 @@ class _SubAdminState extends State<SubAdmin> {
               ListTile(
                 horizontalTitleGap: 0,
                 leading: FaIcon(
-                  FontAwesomeIcons.database,
-                  color: gradientColor2,
-                ),
-                title: Text(
-                  "Notification Panel",
-                  style: GoogleFonts.robotoMono(
-                      color: gradientColor2,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20),
-                ),
-                onTap: () {
-                  Get.to(() => StorageScreen());
-                },
-              ),
-              ListTile(
-                horizontalTitleGap: 0,
-                leading: FaIcon(
                   FontAwesomeIcons.squareRss,
-                  color: gradientColor2,
+                  
                 ),
                 title: Text(
                   "Feed",
-                  style: GoogleFonts.robotoMono(
-                      color: gradientColor2,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20),
+                 style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),
                 ),
                 onTap: () {
-                  Get.to(() => FeedScreen());
+                  Get.to(() => DroneScreen());
                 },
               ),
               ListTile(
                 horizontalTitleGap: 0,
                 leading: FaIcon(
                   FontAwesomeIcons.phone,
-                  color: gradientColor2,
+                  
                 ),
                 title: Text(
                   "CTA",
-                  style: GoogleFonts.robotoMono(
-                      color: gradientColor2,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20),
+                 style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),
                 ),
                 onTap: () {
                   Get.to(() => CTAScreen());
                 },
               ),
+              SizedBox(
+                height: 150,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.black,
+                  ),
+                  onPressed: () {
+                    Get.to(LoginScreen());
+                  },
+                  child: Text("Sign Out",style: TextStyle(
+                        fontFamily: "Major",
+                        fontSize: 20,
+                       ),),
+                ),
+              )
             ],
           ),
         ),
@@ -168,19 +170,29 @@ class _SubAdminState extends State<SubAdmin> {
         appBar: AppBar(
           backgroundColor: Colors.black,
           elevation: 0,
-          iconTheme: IconThemeData(color: gradientColor2, size: 40),
+          iconTheme: IconThemeData(color: Colors.white, size: 40),
           title: Text("Sub Admin"),
         ),
-          body: Center(
-          child: Text("WELCOME TO APS",
-              style: TextStyle(
-                  color: gradientColor2,
-                  fontSize: 48,
-                  fontFamily: "Major",
-                  fontWeight: FontWeight.bold)),
-        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("WELCOME TO",
+                  style: TextStyle(
+                      color: gradientColor1,
+                      fontSize: 48,
+                      fontFamily: "Major",
+                      fontWeight: FontWeight.bold)),
+                       Text("APS",
+                  style: TextStyle(
+                      color: gradientColor1,
+                      fontSize: 48,
+                      fontFamily: "Major",
+                      fontWeight: FontWeight.bold)),
+            ],
           ),
+        ),
+      ),
     );
-
   }
 }

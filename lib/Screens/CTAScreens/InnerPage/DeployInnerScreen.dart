@@ -74,7 +74,7 @@ class DeployInnerScreen extends StatelessWidget {
                     child: TextButton(
                       onPressed: () {
                         Get.snackbar("Drone Deployed", "Dismiss",
-                            colorText: Colors.white);
+                            backgroundColor: Colors.white,colorText: gradientColor2,dismissDirection: DismissDirection.horizontal);
                       },
                       child: Text(
                         "Deploy",

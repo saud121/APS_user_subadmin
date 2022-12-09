@@ -1,4 +1,4 @@
-package com.example.aps_user_subadmin
+package com.example.user_subadmin
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,7 +1,8 @@
 import 'package:aps_super_admin/Screens/DashbordScreens/DashboardScreen.dart';
 import 'package:aps_super_admin/Screens/ManageScreens/ManageScreen.dart';
+import 'package:aps_super_admin/Screens/ManageScreens/employee_performance.dart';
 import 'package:aps_super_admin/interfaces/subadmin/screens/subadmindashboard.dart';
-import 'package:aps_super_admin/widgets/custom_buttom.dart';
+import 'package:aps_super_admin/widgets/custom_textfiel.dart';
 import 'package:aps_super_admin/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -107,11 +108,11 @@ class SubAdminManageEmpl extends StatelessWidget {
                ),
                SizedBox(height: 10,),
                   CustomButton(txt:"View performance", onPressedf: (){
-                    Get.off(ManageScreen());
+                    Get.to(EmployeePerformace());
                   },checkSize: false,),
                   SizedBox(height: 10,),
                   CustomButton(txt:"Search Employees", onPressedf: (){
-                    Get.off(ManageScreen());
+                    Get.to(ManageScreen());
                   },checkSize: false,),
                   SizedBox(height: 10,),
                  Container(

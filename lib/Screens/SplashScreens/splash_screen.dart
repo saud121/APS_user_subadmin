@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:aps_super_admin/Screens/LoginScreens/LoginScreen.dart';
+import 'package:aps_super_admin/Screens/LoginScreens/loginscreen.dart';
 import 'package:aps_super_admin/Utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
