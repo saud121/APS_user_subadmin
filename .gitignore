@@ -1,44 +1,40 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
-.DS_Store
-.atom/
-.buildlog/
-.history
-.svn/
-migrate_working_dir/
-
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
-.idea/
-
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
-
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
-.packages
-.pub-cache/
-.pub/
-/build/
-
-# Symbolication related
-app.*.symbols
-
-# Obfuscation related
-app.*.map.json
-
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+{
+  "iphone_models": [
+    {
+      "model": "iPhone X",
+      "price_sar": 2999,
+      "specifications": {
+        "display": "5.8-inch Super Retina OLED",
+        "processor": "A11 Bionic",
+        "camera": "12 MP dual-lens rear, 7 MP front",
+        "storage": "64GB / 256GB",
+        "battery": "2716 mAh",
+        "features": ["Face ID", "Animoji"]
+      }
+    },
+    {
+      "model": "iPhone 11",
+      "price_sar": 2499,
+      "specifications": {
+        "display": "6.1-inch Liquid Retina LCD",
+        "processor": "A13 Bionic",
+        "camera": "12 MP dual-lens rear, 12 MP front",
+        "storage": "64GB / 128GB / 256GB",
+        "battery": "3110 mAh",
+        "features": ["Face ID", "Night mode"]
+      }
+    },
+    {
+      "model": "iPhone 12 Pro",
+      "price_sar": 3699,
+      "specifications": {
+        "display": "6.1-inch Super Retina XDR OLED",
+        "processor": "A14 Bionic",
+        "camera": "12 MP triple-lens rear, 12 MP front",
+        "storage": "128GB / 256GB / 512GB",
+        "battery": "2815 mAh",
+        "features": ["Face ID", "LiDAR Scanner"]
+      }
+    }
+  ]
+}
